@@ -30,6 +30,14 @@ body{font-family:'Raleway',sans-serif;background:#090806;color:#f2ede4;-webkit-f
 @keyframes bar{from{width:0}to{width:100%}}
 @keyframes glow{0%,100%{opacity:.5}50%{opacity:1}}
 @keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:600px){
+  .rentals-header{flex-direction:column!important;align-items:stretch!important;}
+  .rentals-contact{width:100%!important;}
+  .rentals-contact a{width:100%!important;justify-content:center!important;}
+  .filter-divider{display:none!important;}
+  .rentals-cta-btns{flex-direction:column!important;align-items:stretch!important;}
+  .rentals-cta-btns a,.rentals-cta-btns button{width:100%!important;justify-content:center!important;text-align:center!important;}
+}
 `;
 
 // ─── HELPERS ──────────────────────────────────────────────────────────────────
@@ -101,6 +109,9 @@ const GEAR:Gear[] = [
 // ─── ATOMS ────────────────────────────────────────────────────────────────────
 function SafeImg({src,alt,style,cls}:{src:string;alt:string;style?:React.CSSProperties;cls?:string}) {
   const [err,setErr]=useState(false);
+  // Reset error state if src changes
+  const prevSrc=useRef(src);
+  if(prevSrc.current!==src){prevSrc.current=src;if(err)setErr(false);}
   if(err) return (
     <div style={{width:'100%',height:'100%',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',background:'linear-gradient(135deg,#181410,#0d0b08)',...style}}>
       <span style={{fontSize:24,opacity:.2}}>📷</span>
@@ -141,7 +152,7 @@ function WaBtn({href,sm}:{href:string;sm?:boolean}) {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer"
       style={{display:'inline-flex',alignItems:'center',justifyContent:'center',gap:7,
-        background:'#25D366',color:'#fff',padding:sm?'8px 12px':'12px 26px',
+        background:'#25D366',color:'#fff',padding:sm?'10px 12px':'12px 26px',
         fontWeight:600,fontSize:sm?9:11,letterSpacing:'.2em',textTransform:'uppercase',
         textDecoration:'none',transition:'background .2s',width:sm?'100%':undefined}}
       onMouseEnter={e=>(e.currentTarget.style.background='#1ebe5b')}
@@ -402,7 +413,7 @@ function Footer({go}:{go:(p:Page)=>void}) {
 // ═══════════════════════════════════════════════════════════════════════════════
 const SLIDES = [
   'slide1.jpg','slide2.jpg','slide3.jpg','slide4.jpg','slide5.jpg',
-  'slide6.jpg','slide7.jpg','slide8.jpg','slide9.jpg',
+  'slide6.jpg','slide7.jpg','slide8.jpg','slide9.jpg','slide10.jpg',
 ];
 
 function HeroSlider({go}:{go:(p:Page)=>void}) {
@@ -713,33 +724,31 @@ function Home({go}:{go:(p:Page)=>void}) {
 // ═══════════════════════════════════════════════════════════════════════════════
 function Gallery({svc,go}:{svc:typeof SVCS[0];go:(p:Page)=>void}) {
   const [lb,setLb]=useState<number|null>(null);
+  const lbRef=useRef<number|null>(null);
+  lbRef.current=lb;
 
-  // Open lightbox: push a history state so back button closes it
   const openLb=(i:number)=>{
     setLb(i);
-    window.history.pushState({page:svc.id,lightbox:true},'',window.location.pathname);
+    // Push a dummy entry so back button closes lightbox instead of navigating
+    window.history.pushState(null,'',window.location.pathname);
   };
+  const closeLb=()=>setLb(null);
 
-  // Close lightbox
-  const closeLb=()=>{
-    setLb(null);
-  };
-
-  // Keyboard nav + back button handling inside gallery
   useEffect(()=>{
     const onKey=(e:KeyboardEvent)=>{
-      if(lb===null)return;
+      if(lbRef.current===null)return;
       if(e.key==='ArrowRight')setLb(p=>p!==null?Math.min(p+1,svc.imgs.length-1):null);
       if(e.key==='ArrowLeft') setLb(p=>p!==null?Math.max(p-1,0):null);
-      if(e.key==='Escape'){window.history.back();}
+      if(e.key==='Escape') setLb(null);
     };
-    const onPop=(e:PopStateEvent)=>{
-      // If lightbox is open, close it and stay on gallery page
-      if(lb!==null){
+    // Intercept popstate while lightbox is open to close it instead of navigating
+    const onPop=()=>{
+      if(lbRef.current!==null){
         setLb(null);
-        // Re-push the gallery state so back still works to go home
-        window.history.pushState({page:svc.id},'',window.location.pathname);
+        // Re-push so App's popstate handler still has an entry for page back
+        window.history.pushState(null,'',window.location.pathname);
       }
+      // If lightbox is closed, let it bubble up to App's handler
     };
     window.addEventListener('keydown',onKey);
     window.addEventListener('popstate',onPop);
@@ -747,7 +756,7 @@ function Gallery({svc,go}:{svc:typeof SVCS[0];go:(p:Page)=>void}) {
       window.removeEventListener('keydown',onKey);
       window.removeEventListener('popstate',onPop);
     };
-  },[lb,svc.imgs.length,svc.id]);
+  },[svc.imgs.length]);
 
   return (
     <div style={{background:C.bg,minHeight:'100vh'}}>
@@ -790,13 +799,13 @@ function Gallery({svc,go}:{svc:typeof SVCS[0];go:(p:Page)=>void}) {
       </section>
 
       {lb!==null&&(
-        <div onClick={()=>{window.history.back();}}
+        <div onClick={()=>closeLb()}
           style={{position:'fixed',inset:0,zIndex:999,background:'rgba(4,3,2,.96)',display:'flex',alignItems:'center',justifyContent:'center'}}>
           <div onClick={e=>e.stopPropagation()} style={{position:'relative',maxWidth:'90vw',maxHeight:'90vh'}}>
             <img src={`/${svc.imgs[lb]}`} alt="" style={{maxWidth:'90vw',maxHeight:'85vh',objectFit:'contain',display:'block',border:`1px solid ${C.goldBr}`}}/>
             {lb>0&&<button onClick={()=>setLb(lb-1)} style={{position:'absolute',left:-46,top:'50%',transform:'translateY(-50%)',background:'transparent',border:`1px solid ${C.goldBr}`,color:C.gold,width:34,height:34,cursor:'pointer',fontSize:20,display:'flex',alignItems:'center',justifyContent:'center'}}>‹</button>}
             {lb<svc.imgs.length-1&&<button onClick={()=>setLb(lb+1)} style={{position:'absolute',right:-46,top:'50%',transform:'translateY(-50%)',background:'transparent',border:`1px solid ${C.goldBr}`,color:C.gold,width:34,height:34,cursor:'pointer',fontSize:20,display:'flex',alignItems:'center',justifyContent:'center'}}>›</button>}
-            <button onClick={()=>window.history.back()} style={{position:'absolute',top:-38,right:0,background:'none',border:'none',color:C.gold,cursor:'pointer',fontSize:22}}>✕</button>
+            <button onClick={()=>closeLb()} style={{position:'absolute',top:-38,right:0,background:'none',border:'none',color:C.gold,cursor:'pointer',fontSize:22}}>✕</button>
             <div style={{textAlign:'center',marginTop:10,color:'rgba(242,237,228,.25)',fontFamily:'monospace',fontSize:10,letterSpacing:'.28em'}}>{lb+1} / {svc.imgs.length}</div>
           </div>
         </div>
@@ -839,12 +848,12 @@ function Rentals({go}:{go:(p:Page)=>void}) {
   return (
     <div style={{background:C.bg,minHeight:'100vh'}}>
 
-      <section style={{padding:'90px 6vw 56px',maxWidth:1380,margin:'0 auto',borderBottom:`1px solid ${C.goldBr}`}}>
+      <section style={{padding:'90px 4vw 40px',maxWidth:1380,margin:'0 auto',borderBottom:`1px solid ${C.goldBr}`}}>
         <button onClick={()=>{go('home');}}
           style={{background:'none',border:'none',cursor:'pointer',color:C.gold,fontFamily:'monospace',fontSize:10,letterSpacing:'.32em',textTransform:'uppercase',marginBottom:26,display:'flex',alignItems:'center',gap:7}}>
           ← Back to Home
         </button>
-        <div style={{display:'flex',flexWrap:'wrap',justifyContent:'space-between',alignItems:'flex-end',gap:32}}>
+        <div className="rentals-header" style={{display:'flex',flexWrap:'wrap',justifyContent:'space-between',alignItems:'flex-start',gap:24}}>
           <div>
             <Label>The Clicky Clicks — Nagarjun S</Label>
             <h1 className="serif" style={{color:C.cream,fontSize:'clamp(2.2rem,5.5vw,5rem)',fontWeight:400,lineHeight:1,letterSpacing:'.02em'}}>
@@ -855,7 +864,7 @@ function Rentals({go}:{go:(p:Page)=>void}) {
               Premium cameras and professional lenses — maintained and production-ready. Available for photographers, filmmakers &amp; content creators across Bangalore.
             </p>
           </div>
-          <div style={{display:'flex',flexDirection:'column',gap:11}}>
+          <div className="rentals-contact" style={{display:'flex',flexDirection:'column',gap:11}}>
             <div style={{display:'flex',alignItems:'center',gap:13,padding:'14px 18px',background:C.bgCard,border:`1px solid ${C.goldBr}`}}>
               <span style={{fontSize:20}}>🎥</span>
               <div>
@@ -880,8 +889,8 @@ function Rentals({go}:{go:(p:Page)=>void}) {
       </section>
 
       <section style={{padding:'32px 6vw 0',maxWidth:1380,margin:'0 auto'}}>
-        <div style={{background:C.bgCard,border:`1px solid ${C.goldBr}`,padding:'22px 24px'}}>
-          <div style={{display:'flex',flexWrap:'wrap',gap:28,alignItems:'flex-end'}}>
+        <div style={{background:C.bgCard,border:`1px solid ${C.goldBr}`,padding:'16px',overflowX:'auto'}}>
+          <div style={{display:'flex',flexWrap:'wrap',gap:16,alignItems:'flex-end',minWidth:0}}>
             <div>
               <div style={{color:C.gold,fontSize:9,fontFamily:'monospace',letterSpacing:'.42em',textTransform:'uppercase',marginBottom:9}}>Category</div>
               <div style={{display:'flex',gap:4,flexWrap:'wrap'}}>
@@ -890,7 +899,7 @@ function Rentals({go}:{go:(p:Page)=>void}) {
                 ))}
               </div>
             </div>
-            <div style={{width:1,height:40,background:C.goldBr}}/>
+            <div className="filter-divider" style={{width:1,height:40,background:C.goldBr,flexShrink:0}}/>
             <div>
               <div style={{color:C.gold,fontSize:9,fontFamily:'monospace',letterSpacing:'.42em',textTransform:'uppercase',marginBottom:9}}>Brand</div>
               <div style={{display:'flex',gap:4,flexWrap:'wrap'}}>
@@ -927,7 +936,7 @@ function Rentals({go}:{go:(p:Page)=>void}) {
             <p style={{color:C.muted,marginTop:14,fontFamily:'monospace',fontSize:11,letterSpacing:'.3em',textTransform:'uppercase'}}>No items match your filters</p>
           </div>
         ):(
-          <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(168px,1fr))',gap:10}}>
+          <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(min(160px,45vw),1fr))',gap:10}}>
             {items.map((item,i)=>{
               const bc=bCol[item.brand as keyof typeof bCol]||bCol.Sony;
               return (
@@ -960,7 +969,7 @@ function Rentals({go}:{go:(p:Page)=>void}) {
         </h2>
         <Rule w={54}/>
         <p style={{color:C.muted,maxWidth:440,margin:'0 auto 34px',lineHeight:1.85,fontWeight:300,fontSize:14}}>Call or WhatsApp to check availability, pricing, and custom packages.</p>
-        <div style={{display:'flex',flexWrap:'wrap',justifyContent:'center',gap:14}}>
+        <div className="rentals-cta-btns" style={{display:'flex',flexWrap:'wrap',justifyContent:'center',gap:14}}>
           <GBtn ghost href="tel:+919880736666">📞 Call Nagarjun</GBtn>
           <WaBtn href={`${WA_R}${encodeURIComponent('Hi Nagarjun, I would like to enquire about camera and equipment rentals. Please share availability and pricing.')}`}/>
         </div>
@@ -977,30 +986,35 @@ function Rentals({go}:{go:(p:Page)=>void}) {
 export default function App() {
   const [loaded,setLoaded]=useState(false);
   const [page,  setPage  ]=useState<Page>('home');
-  const isFirst=useRef(true);
+  // Internal history stack — no URL changes, no Next.js reloads
+  const historyStack=useRef<Page[]>(['home']);
 
   const go=useCallback((p:Page)=>{
+    historyStack.current.push(p);
     setPage(p);
-    window.history.pushState({page:p},'',window.location.pathname);
     window.scrollTo(0,0);
   },[]);
 
-  // Replace initial history state on mount
   useEffect(()=>{
-    window.history.replaceState({page:'home'},'',window.location.pathname);
-  },[]);
+    // Push one dummy entry so the back button always fires popstate
+    window.history.pushState(null,'',window.location.pathname);
 
-  // Handle browser back/forward button
-  useEffect(()=>{
-    const fn=(e:PopStateEvent)=>{
-      // If it's a lightbox state, Gallery handles it — ignore here
-      if(e.state&&e.state.lightbox) return;
-      const p:Page=(e.state&&e.state.page)?e.state.page:'home';
-      setPage(p);
-      window.scrollTo(0,0);
+    const onPop=()=>{
+      const stack=historyStack.current;
+      if(stack.length>1){
+        stack.pop();
+        const prev=stack[stack.length-1];
+        setPage(prev);
+        window.scrollTo(0,0);
+        // Re-push so the next back press also fires
+        window.history.pushState(null,'',window.location.pathname);
+      } else {
+        // Nothing left in stack — let browser navigate away naturally
+      }
     };
-    window.addEventListener('popstate',fn);
-    return()=>window.removeEventListener('popstate',fn);
+
+    window.addEventListener('popstate',onPop);
+    return()=>window.removeEventListener('popstate',onPop);
   },[]);
 
   const svc=SVCS.find(s=>s.id===page);
@@ -1014,7 +1028,7 @@ export default function App() {
         <main>
           {page==='home'    ? <Home    go={go}/> :
            page==='rentals' ? <Rentals go={go}/> :
-           svc              ? <Gallery svc={svc} go={go}/> :
+           svc              ? <Gallery key={svc.id} svc={svc} go={go}/> :
                               <Home    go={go}/>}
         </main>
       </div>
