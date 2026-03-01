@@ -45,7 +45,6 @@ const SVCS = [
   {id:'maternity',  short:'Maternity',  label:'Maternity Photography',  desc:'Capturing the radiance and joy of new beginnings.',           cover:'maternity1.png',  imgs:['maternity1.png','maternity2.png','maternity3.png','maternity4.png','maternity5.png','maternity6.png','maternity7.png','maternity8.png']},
   {id:'prewedding', short:'Pre-Wedding', label:'Pre-Wedding Photography', desc:'Your love story, beautifully told before the big day.',        cover:'preWedding1.png', imgs:['preWedding1.png','preWedding2.png','preWedding3.png','preWedding4.png','preWedding5.png','preWedding6.png','preWedding7.png','preWedding8.png']},
   {id:'wedding',    short:'Wedding',    label:'Wedding Photography',     desc:'Every vow and emotion, preserved with artistry.',              cover:'Wedding1.png',    imgs:['Wedding1.png','Wedding2.png','Wedding3.png','Wedding4.png','Wedding5.png','Wedding6.png','Wedding7.png','Wedding8.png']},
-  {id:'baby',       short:'Baby Shoot', label:'Baby Shoot',              desc:'Tiny moments that become lifelong treasures.',                 cover:'babyshoot1.png',  imgs:['babyshoot1.png','babyshoot2.png','babyshoot3.png','babyshoots.png','babyshoot5.png','babyshoot6.png','babyshoot7.png','babyshoot8.png']},
   {id:'modelling',  short:'Modelling',  label:'Modelling Shoot',         desc:'Powerful portraits that define your brand and presence.',      cover:'modelling1.png',  imgs:['modelling1.png','modelling2.png','modelling3.png','modelling4.png','modelling5.png','modelling6.png','modelling7.png','modelling8.png']},
   {id:'portfolio',  short:'Portfolio',  label:'Portfolio Shoots',        desc:'A professional portfolio that opens doors.',                   cover:'Portfolio1.png',  imgs:['Portfolio1.png','Portfolio2.png','Portfolio3.png','Portfolio4.png','Portfolio5.png','Portfolio6.png','Portfolio7.png','Portfolio8.png']},
   {id:'product',    short:'Product',    label:'Product Photography',     desc:'Visuals engineered to make your products irresistible.',       cover:'product1.png',    imgs:['product1.png','product2.png','Product3.png','Product4.png','product5.png','product6.png','product7.png','product8.png']},
@@ -54,57 +53,52 @@ const SVCS = [
 
 type Gear = {name:string;img:string;brand:string;type:'camera'|'lens'};
 const GEAR:Gear[] = [
-  {name:'Sony FX3',                           img:'Sony-fx3.jpg',                    brand:'Sony',  type:'camera'},
-  {name:'Sony FX2',                           img:'sony-fx2.jpg',                    brand:'Sony',  type:'camera'},
-  {name:'Sony A7 V',                          img:'sony-a7v.jpg',                    brand:'Sony',  type:'camera'},
-  {name:'Sony FX6',                           img:'sony-fx6.jpg',                    brand:'Sony',  type:'camera'},
-  {name:'Sony FX9',                           img:'sony-fx9.jpg',                    brand:'Sony',  type:'camera'},
-  {name:'Sony A7 III',                        img:'sony-a7iii.jpg',                  brand:'Sony',  type:'camera'},
-  {name:'Sony A7 IV',                         img:'sony-a7iv.jpg',                   brand:'Sony',  type:'camera'},
-  {name:'Sony A7S III',                       img:'sony-a7siii.jpg',                 brand:'Sony',  type:'camera'},
-  {name:'Sony A7R IV',                        img:'sony-a7riv.jpg',                  brand:'Sony',  type:'camera'},
-  {name:'Sony A7R V',                         img:'sony-a7rv.jpg',                   brand:'Sony',  type:'camera'},
-  {name:'Nikon ZR (with Adapter)',            img:'nikon-zr.jpg',                    brand:'Nikon', type:'camera'},
-  {name:'Canon EOS R5 Mark II',               img:'canon-eos-r5-mark-ii.jpg',        brand:'Canon', type:'camera'},
-  {name:'Canon EOS R5',                       img:'canon-eos-r5.jpg',                brand:'Canon', type:'camera'},
-  {name:'Canon EOS R6 Mark II',               img:'canon-eos-r6-mark-ii.jpg',        brand:'Canon', type:'camera'},
-  {name:'Canon EOS R6',                       img:'canon-eos-r6.jpg',                brand:'Canon', type:'camera'},
-  {name:'Sony FE 14mm F1.8 GM',              img:'sony-fe-14mm-f1-8-gm.jpg',        brand:'Sony',  type:'lens'},
-  {name:'Sony FE 24mm F1.4 GM',              img:'sony-fe-24mm-f1-4-gm.jpg',        brand:'Sony',  type:'lens'},
-  {name:'Sony FE 35mm F1.4 GM',              img:'sony-fe-35mm-f1-4-gm.jpg',        brand:'Sony',  type:'lens'},
-  {name:'Sony FE 50mm F1.2 GM',              img:'sony-fe-50mm-f1-2-gm.jpg',        brand:'Sony',  type:'lens'},
-  {name:'Sony FE 50mm F1.4 GM',              img:'sony-fe-50mm-f1-4-gm.jpg',        brand:'Sony',  type:'lens'},
-  {name:'Sony FE 50mm F1.8',                 img:'sony-fe-50mm-f1-8.jpg',            brand:'Sony',  type:'lens'},
-  {name:'Sony FE 85mm F1.4 GM',              img:'sony-fe-85mm-f1-4-gm.jpg',        brand:'Sony',  type:'lens'},
-  {name:'Sony FE 85mm F1.8',                 img:'sony-fe-85mm-f1-8.jpg',            brand:'Sony',  type:'lens'},
-  {name:'Sony FE 90mm Macro F2.8 G OSS',     img:'sony-fe-90mm-macro.jpg',           brand:'Sony',  type:'lens'},
-  {name:'Sony FE 100mm F2.8 STF GM OSS',     img:'sony-fe-100mm-stf.jpg',            brand:'Sony',  type:'lens'},
-  {name:'Sony FE 135mm F1.8 GM',             img:'sony-fe-135mm-f1-8-gm.jpg',       brand:'Sony',  type:'lens'},
-  {name:'Sony FE 200–600mm F5.6–6.3 G OSS',  img:'sony-fe-200-600mm.jpg',           brand:'Sony',  type:'lens'},
-  {name:'Sony 28–135mm FE F4 G OSS',         img:'sony-fe-28-135mm.jpg',             brand:'Sony',  type:'lens'},
-  {name:'Sony FE 12–24mm F4 G',              img:'sony-fe-12-24mm-f4.jpg',           brand:'Sony',  type:'lens'},
-  {name:'Sony FE 24–105mm F4 G OSS',         img:'sony-fe-24-105mm.jpg',             brand:'Sony',  type:'lens'},
-  {name:'Sony FE 16–35mm F2.8 GM',           img:'sony-fe-16-35mm-f2-8-gm.jpg',     brand:'Sony',  type:'lens'},
-  {name:'Sony FE 24–70mm F2.8 GM',           img:'sony-fe-24-70mm-f2-8-gm.jpg',     brand:'Sony',  type:'lens'},
-  {name:'Sony FE 70–200mm F2.8 GM',          img:'sony-fe-70-200mm-f2-8-gm.jpg',    brand:'Sony',  type:'lens'},
-  {name:'Sony FE 24–70mm F2.8 GM II',        img:'sony-fe-24-70mm-f2-8-gm-ii.jpg',  brand:'Sony',  type:'lens'},
-  {name:'Sony FE 70–200mm F2.8 GM II',       img:'sony-fe-70-200mm-f2-8-gm-ii.jpg', brand:'Sony',  type:'lens'},
-  {name:'Sony FE 12–24mm F2.8 GM',           img:'sony-fe-12-24mm-f2-8-gm.jpg',     brand:'Sony',  type:'lens'},
-  {name:'Sony FE 100–400mm F4.5–5.6 GM OSS', img:'sony-fe-100-400mm.jpg',           brand:'Sony',  type:'lens'},
-  {name:'Sony 28–70mm',                      img:'sony-28-70mm.jpg',                 brand:'Sony',  type:'lens'},
-  {name:'Sony 50–150mm F2',                  img:'sony-50-150mm-f2.jpg',             brand:'Sony',  type:'lens'},
-  {name:'Canon RF 50mm F1.8 STM',            img:'canon-rf-50mm-f1-8.jpg',           brand:'Canon', type:'lens'},
-  {name:'Canon RF 85mm F2 Macro IS STM',     img:'canon-rf-85mm-f2-macro.jpg',       brand:'Canon', type:'lens'},
-  {name:'Canon RF 70–200mm F2.8L IS',        img:'canon-rf-70-200mm-f2-8l.jpg',      brand:'Canon', type:'lens'},
-  {name:'Canon RF 24–105mm F4L IS',          img:'canon-rf-24-105mm-f4l.jpg',        brand:'Canon', type:'lens'},
-  {name:'Canon RF 15–35mm F2.8L IS',         img:'canon-rf-15-35mm-f2-8l.jpg',       brand:'Canon', type:'lens'},
-  {name:'Canon RF 50mm F1.2',                img:'canon-rf-50mm-f1-2.jpg',            brand:'Canon', type:'lens'},
-  {name:'Canon RF 24–70mm F2.8L IS',         img:'canon-rf-24-70mm-f2-8l.jpg',       brand:'Canon', type:'lens'},
-  {name:'Canon RF 85mm F1.2L USM',           img:'canon-rf-85mm-f1-2l.jpg',          brand:'Canon', type:'lens'},
-  {name:'Canon RF 35mm F1.8 Macro IS STM',   img:'canon-rf-35mm-f1-8-macro.jpg',     brand:'Canon', type:'lens'},
-  {name:'RF 35mm F1.4',                      img:'canon-rf-35mm-f1-4.jpg',            brand:'Canon', type:'lens'},
-  {name:'RF 85mm F1.4',                      img:'canon-rf-85mm-f1-4.jpg',            brand:'Canon', type:'lens'},
-  {name:'RF 28–70mm',                        img:'canon-rf-28-70mm.jpg',              brand:'Canon', type:'lens'},
+  // ── CAMERAS ──
+  {name:'Canon 5D Mark IV with 24-70mm Lens',  img:'canon-5d-mark-iv-with-24-70mm-lens.jpg',          brand:'Canon', type:'camera'},
+  {name:'Canon EOS R5 Mark II',                img:'canon-eos--r5-mark-ii-camera.jpg',                 brand:'Canon', type:'camera'},
+  {name:'Canon EOS R5 Mirrorless Digital',     img:'canon-eos-r5-mirrorless-digital-camera.jpg',       brand:'Canon', type:'camera'},
+  {name:'Canon EOS R6 Mark II',                img:'canon-eos-r6-mark-ii camera.jpg',                  brand:'Canon', type:'camera'},
+  {name:'Canon EOS R6 Mirrorless Digital',     img:'canon-eos-r6-mirrorless-digital-camera.jpg',       brand:'Canon', type:'camera'},
+  {name:'GoPro Hero 11',                       img:'gopro-hero-11.jpg',                                brand:'GoPro', type:'camera'},
+  {name:'GoPro Hero 13 Black',                 img:'gopro-hero-13-black.jpg',                          brand:'GoPro', type:'camera'},
+  {name:'Insta360 X3',                         img:'insta-360x3-camera.jpg',                           brand:'Insta360', type:'camera'},
+  {name:'Sony A7 III E-Mount',                 img:'sony-a7-iii-e-mount.png',                          brand:'Sony',  type:'camera'},
+  {name:'Sony A7 IV E-Mount',                  img:'sony--a7-iv-e-mount.jpg',                          brand:'Sony',  type:'camera'},
+  {name:'Sony A7R IV E-Mount',                 img:'sony-a7r-iv-e-mount.jpg',                          brand:'Sony',  type:'camera'},
+  {name:'Sony A7R V E-Mount',                  img:'sony-a7r-v-camera-e-mount.jpg',                    brand:'Sony',  type:'camera'},
+  {name:'Sony A7S III E-Mount',                img:'sony-a7s-iii-e-mount.jpg',                         brand:'Sony',  type:'camera'},
+  {name:'Sony FX3 Full-Frame Cinema',          img:'sony-fx3-full-frame-cinema-camera (1).jpg',         brand:'Sony',  type:'camera'},
+  {name:'Sony FX6 Full-Frame Cinema',          img:'sony-fx6-full-frame-cinema-camera.jpg',             brand:'Sony',  type:'camera'},
+  {name:'Sony PXW-FX9 XD Cam 6K Full-Frame',  img:'sony-pxw-fx9-xd-cam-6k-full-frame-camera.jpg',     brand:'Sony',  type:'camera'},
+
+  // ── LENSES ──
+  {name:'Canon RF 15-35mm F2.8L IS',           img:'canon-rf-15-35mm-f2.8l-is-lens.jpg',               brand:'Canon', type:'lens'},
+  {name:'Canon RF 24-70mm F2.8L IS',           img:'canon-rf-24-70mm-f2.8l-is-lens.jpg',               brand:'Canon', type:'lens'},
+  {name:'Canon RF 24-105mm F4L IS',            img:'canon-rf-24-105mm-f4l-is-lens.jpg',                brand:'Canon', type:'lens'},
+  {name:'Canon RF 35mm F1.8 Macro IS STM',     img:'canon-rf-35mm-f1.8-macro-is-stm-lens.jpg',         brand:'Canon', type:'lens'},
+  {name:'Canon RF 50mm F1.2',                  img:'canon-rf-50mm-1.2.jpg',                             brand:'Canon', type:'lens'},
+  {name:'Canon RF 50mm F1.8 STM',              img:'canon-rf-50mm-f1.8-stm-lens.jpg',                  brand:'Canon', type:'lens'},
+  {name:'Canon RF 70-200mm F2.8L IS',          img:'canon-rf-70-200mm-f2.8l-is-lens.jpg',              brand:'Canon', type:'lens'},
+  {name:'Canon RF 85mm F1.2L USM',             img:'canon-rf-85mm-f1.2-l-usm-lens.jpg',                brand:'Canon', type:'lens'},
+  {name:'Canon RF 85mm F2 Macro IS STM',       img:'canon-rf-85mm-f2-macro-is-stm-lens.jpg',           brand:'Canon', type:'lens'},
+  {name:'Canon RF 100mm F2.8L Macro IS USM',   img:'canon-rf-100mm-f2.8-l-macro-is-usm-lens.jpg',      brand:'Canon', type:'lens'},
+  {name:'Sony FE 12-24mm F2.8 GM',             img:'sony-fe-12-24m-m-f2.8-gm-lens.jpg',                brand:'Sony',  type:'lens'},
+  {name:'Sony FE 12-24mm F4 G',                img:'sony-fe-12-24m-m-f4-g-lens.jpg',                   brand:'Sony',  type:'lens'},
+  {name:'Sony FE 14mm F1.8 GM',                img:'sony-fe-14mm-f1.8-gm-lens.jpg',                    brand:'Sony',  type:'lens'},
+  {name:'Sony FE 16-35mm F2.8 GM',             img:'sony-fe-16-35m-m-f2.8-gm-lens.jpg',                brand:'Sony',  type:'lens'},
+  {name:'Sony FE 24-70mm F2.8 GM',             img:'sony-fe-24-70m-m-f2.8-gm-lens.jpg',                brand:'Sony',  type:'lens'},
+  {name:'Sony FE 24mm F1.4 GM',                img:'sony-fe-24mm-f1.4-gm-lens.jpg',                    brand:'Sony',  type:'lens'},
+  {name:'Sony FE 35mm F1.4 GM',                img:'sony-fe-35mm--f1.4-gm-lens.jpg',                   brand:'Sony',  type:'lens'},
+  {name:'Sony FE 50mm F1.2 GM',                img:'sony-fe-50mm--f1.2-gm-lens.jpg',                   brand:'Sony',  type:'lens'},
+  {name:'Sony FE 50mm F1.8',                   img:'sony-fe-50mm-f1.8-lens.jpg',                       brand:'Sony',  type:'lens'},
+  {name:'Sony FE 70-200mm F2.8 GM',            img:'sony-fe-70-200m-m-f2.8-gm-lens.jpg',               brand:'Sony',  type:'lens'},
+  {name:'Sony FE 85mm F1.4 GM',                img:'sony-fe-85mm-f1.4-gm-lens.jpg',                    brand:'Sony',  type:'lens'},
+  {name:'Sony FE 90mm Macro F2.8 G OSS',       img:'sony-fe-90mm-macro-f2.8-g-oss-lens.jpg',           brand:'Sony',  type:'lens'},
+  {name:'Sony FE 100-400mm F4.5-5.6 GM OSS',   img:'sony-fe-100-400mm-f4.5-5.6-gm-oss-lens.jpg',      brand:'Sony',  type:'lens'},
+  {name:'Sony FE 100mm F2.8 STF GM OSS',       img:'sony-fe-100mm-f2.8-stf-gm-oss-lens.jpg',           brand:'Sony',  type:'lens'},
+  {name:'Sony FE 135mm F1.8 GM',               img:'sony-fe-135mm-f1.8-gm-lens (1).jpg',               brand:'Sony',  type:'lens'},
+  {name:'Sony FE 135mm F1.8 GM (Alt)',          img:'sony-fe-135mm-f1.8-gm-lens.jpg',                   brand:'Sony',  type:'lens'},
+  {name:'Sony FE 200-600mm F5.6-6.3 G OSS',    img:'sony-fe-200-600mm-f5.6-6.3-g-oss-lens.jpg',        brand:'Sony',  type:'lens'},
 ];
 
 // ─── ATOMS ────────────────────────────────────────────────────────────────────
@@ -199,20 +193,25 @@ function Preloader({onDone}:{onDone:()=>void}) {
 // ─── NAVBAR ───────────────────────────────────────────────────────────────────
 function Nav({cur,go}:{cur:Page;go:(p:Page)=>void}) {
   const [open,setOpen]=useState(false);
+  const [svcOpen,setSvcOpen]=useState(false);
+  const [mobileSvcOpen,setMobileSvcOpen]=useState(false);
   const [scrolled,setScrolled]=useState(false);
+  const svcRef=useRef<HTMLDivElement>(null);
+
   useEffect(()=>{
     const fn=()=>setScrolled(window.scrollY>40);
     window.addEventListener('scroll',fn,{passive:true});
     return()=>window.removeEventListener('scroll',fn);
   },[]);
 
-  const links=[
-    {l:'Home',p:'home'},{l:'Maternity',p:'maternity'},{l:'Pre-Wedding',p:'prewedding'},
-    {l:'Wedding',p:'wedding'},{l:'Baby Shoot',p:'baby'},{l:'Modelling',p:'modelling'},
-    {l:'Portfolio',p:'portfolio'},{l:'Product',p:'product'},{l:'Commercial',p:'commercial'},{l:'Rentals',p:'rentals'},
-  ];
+  useEffect(()=>{
+    const fn=(e:MouseEvent)=>{if(svcRef.current&&!svcRef.current.contains(e.target as Node))setSvcOpen(false);};
+    document.addEventListener('mousedown',fn);
+    return()=>document.removeEventListener('mousedown',fn);
+  },[]);
 
-  const nav=(p:string)=>{go(p);setOpen(false);window.scrollTo(0,0);};
+  const nav=(p:string)=>{go(p);setOpen(false);setSvcOpen(false);setMobileSvcOpen(false);window.scrollTo(0,0);};
+  const isService=SVCS.some(s=>s.id===cur);
 
   return (
     <nav style={{position:'fixed',top:0,left:0,right:0,zIndex:200,transition:'all .35s',
@@ -220,6 +219,8 @@ function Nav({cur,go}:{cur:Page;go:(p:Page)=>void}) {
       backdropFilter:scrolled?'blur(16px)':'none',
       borderBottom:scrolled?`1px solid ${C.goldBr}`:'1px solid transparent'}}>
       <div style={{maxWidth:1380,margin:'0 auto',padding:'0 20px',height:62,display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+
+        {/* LOGO */}
         <button onClick={()=>nav('home')} style={{display:'flex',alignItems:'center',gap:10,background:'none',border:'none',cursor:'pointer',flexShrink:0}}>
           <div style={{height:44,width:44,flexShrink:0,display:'flex',alignItems:'center',justifyContent:'center'}}>
             <img src="/logo.png" alt="logo"
@@ -236,18 +237,61 @@ function Nav({cur,go}:{cur:Page;go:(p:Page)=>void}) {
           </div>
         </button>
 
+        {/* DESKTOP — 3 tabs */}
         <div className="nlinks" style={{display:'flex',gap:0,alignItems:'center'}}>
-          {links.map(({l,p})=>(
-            <button key={p} onClick={()=>nav(p)}
-              style={{background:'none',border:'none',borderBottom:`1px solid ${cur===p?C.gold:'transparent'}`,
-                cursor:'pointer',padding:'5px 9px',fontFamily:"'Raleway',sans-serif",
-                fontSize:10,letterSpacing:'.2em',textTransform:'uppercase',fontWeight:cur===p?600:400,
-                color:cur===p?C.gold:C.muted,transition:'color .2s'}}>
-              {l}
+
+          {/* 1. Home */}
+          <button onClick={()=>nav('home')}
+            style={{background:'none',border:'none',borderBottom:`1px solid ${cur==='home'?C.gold:'transparent'}`,
+              cursor:'pointer',padding:'5px 20px',fontFamily:"'Raleway',sans-serif",
+              fontSize:10,letterSpacing:'.2em',textTransform:'uppercase',fontWeight:cur==='home'?600:400,
+              color:cur==='home'?C.gold:C.muted,transition:'color .2s'}}>
+            Home
+          </button>
+
+          {/* 2. Our Services dropdown */}
+          <div ref={svcRef} style={{position:'relative'}}>
+            <button onClick={()=>setSvcOpen(v=>!v)}
+              style={{background:'none',border:'none',borderBottom:`1px solid ${isService?C.gold:'transparent'}`,
+                cursor:'pointer',padding:'5px 20px',fontFamily:"'Raleway',sans-serif",
+                fontSize:10,letterSpacing:'.2em',textTransform:'uppercase',fontWeight:isService?600:400,
+                color:isService?C.gold:C.muted,transition:'color .2s',display:'flex',alignItems:'center',gap:6}}>
+              Our Services
+              <span style={{fontSize:8,display:'inline-block',transition:'transform .2s',
+                transform:svcOpen?'rotate(180deg)':'rotate(0deg)',color:isService?C.gold:C.muted}}>▼</span>
             </button>
-          ))}
+
+            {svcOpen&&(
+              <div style={{position:'absolute',top:'calc(100% + 1px)',left:'50%',transform:'translateX(-50%)',
+                background:'rgba(6,5,4,.98)',border:`1px solid ${C.goldBr}`,minWidth:210,zIndex:300,
+                boxShadow:'0 20px 48px rgba(0,0,0,.7)'}}>
+                {SVCS.map(s=>(
+                  <button key={s.id} onClick={()=>nav(s.id)}
+                    style={{display:'block',width:'100%',textAlign:'left',background:'none',
+                      border:'none',borderBottom:`1px solid ${C.ghost}`,padding:'11px 20px',
+                      cursor:'pointer',fontFamily:"'Raleway',sans-serif",fontSize:10,
+                      letterSpacing:'.22em',textTransform:'uppercase',
+                      color:cur===s.id?C.gold:C.muted,transition:'color .18s,background .18s'}}
+                    onMouseEnter={e=>{(e.currentTarget as HTMLButtonElement).style.color=C.gold;(e.currentTarget as HTMLButtonElement).style.background=C.ghost;}}
+                    onMouseLeave={e=>{(e.currentTarget as HTMLButtonElement).style.color=cur===s.id?C.gold:C.muted;(e.currentTarget as HTMLButtonElement).style.background='none';}}>
+                    {cur===s.id&&<span style={{color:C.gold,marginRight:7,fontSize:8}}>✦</span>}{s.short}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* 3. Rentals */}
+          <button onClick={()=>nav('rentals')}
+            style={{background:'none',border:'none',borderBottom:`1px solid ${cur==='rentals'?C.gold:'transparent'}`,
+              cursor:'pointer',padding:'5px 20px',fontFamily:"'Raleway',sans-serif",
+              fontSize:10,letterSpacing:'.2em',textTransform:'uppercase',fontWeight:cur==='rentals'?600:400,
+              color:cur==='rentals'?C.gold:C.muted,transition:'color .2s'}}>
+            Rentals
+          </button>
         </div>
 
+        {/* BURGER */}
         <button onClick={()=>setOpen(!open)} className="nburger"
           style={{display:'none',background:'none',border:`1px solid ${C.goldBr}`,cursor:'pointer',padding:'8px 10px',flexDirection:'column',gap:4.5}}>
           <span style={{display:'block',width:19,height:1.5,background:C.gold,transition:'all .3s',transform:open?'rotate(45deg) translateY(6px)':'none'}}/>
@@ -256,17 +300,49 @@ function Nav({cur,go}:{cur:Page;go:(p:Page)=>void}) {
         </button>
       </div>
 
+      {/* MOBILE MENU */}
       {open&&(
         <div style={{background:'rgba(6,5,4,.98)',borderTop:`1px solid ${C.goldBr}`,padding:'6px 20px 18px'}}>
-          {links.map(({l,p})=>(
-            <button key={p} onClick={()=>nav(p)}
-              style={{display:'block',width:'100%',textAlign:'left',background:'none',border:'none',
-                borderBottom:`1px solid ${C.ghost}`,padding:'12px 0',cursor:'pointer',
-                fontFamily:"'Raleway',sans-serif",fontSize:11,letterSpacing:'.28em',textTransform:'uppercase',
-                color:cur===p?C.gold:C.muted}}>
-              {l}
-            </button>
-          ))}
+
+          <button onClick={()=>nav('home')}
+            style={{display:'block',width:'100%',textAlign:'left',background:'none',border:'none',
+              borderBottom:`1px solid ${C.ghost}`,padding:'12px 0',cursor:'pointer',
+              fontFamily:"'Raleway',sans-serif",fontSize:11,letterSpacing:'.28em',textTransform:'uppercase',
+              color:cur==='home'?C.gold:C.muted}}>
+            Home
+          </button>
+
+          {/* Services accordion */}
+          <button onClick={()=>setMobileSvcOpen(v=>!v)}
+            style={{display:'flex',alignItems:'center',justifyContent:'space-between',width:'100%',
+              textAlign:'left',background:'none',border:'none',borderBottom:`1px solid ${C.ghost}`,
+              padding:'12px 0',cursor:'pointer',fontFamily:"'Raleway',sans-serif",
+              fontSize:11,letterSpacing:'.28em',textTransform:'uppercase',
+              color:isService?C.gold:C.muted}}>
+            Our Services
+            <span style={{fontSize:9,color:C.gold,display:'inline-block',transition:'transform .2s',transform:mobileSvcOpen?'rotate(180deg)':'none'}}>▼</span>
+          </button>
+          {mobileSvcOpen&&(
+            <div style={{paddingLeft:16,borderBottom:`1px solid ${C.ghost}`}}>
+              {SVCS.map(s=>(
+                <button key={s.id} onClick={()=>nav(s.id)}
+                  style={{display:'block',width:'100%',textAlign:'left',background:'none',border:'none',
+                    borderBottom:`1px solid ${C.ghost}`,padding:'10px 0',cursor:'pointer',
+                    fontFamily:"'Raleway',sans-serif",fontSize:10,letterSpacing:'.24em',textTransform:'uppercase',
+                    color:cur===s.id?C.gold:C.muted}}>
+                  {s.short}
+                </button>
+              ))}
+            </div>
+          )}
+
+          <button onClick={()=>nav('rentals')}
+            style={{display:'block',width:'100%',textAlign:'left',background:'none',border:'none',
+              borderBottom:`1px solid ${C.ghost}`,padding:'12px 0',cursor:'pointer',
+              fontFamily:"'Raleway',sans-serif",fontSize:11,letterSpacing:'.28em',textTransform:'uppercase',
+              color:cur==='rentals'?C.gold:C.muted}}>
+            Rentals
+          </button>
         </div>
       )}
 
@@ -389,7 +465,6 @@ function HeroSlider({go}:{go:(p:Page)=>void}) {
       onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}
       onMouseDown={onMouseDown} onMouseMove={onMouseMove} onMouseUp={onMouseUp} onMouseLeave={onMouseLeave}
     >
-      {/* ── SLIDES ── */}
       {SLIDES.map((img, i) => {
         let tx = '100%';
         if (i === cur) tx = '0%';
@@ -407,7 +482,6 @@ function HeroSlider({go}:{go:(p:Page)=>void}) {
         );
       })}
 
-      {/* ── BRAND TEXT + CTA BUTTONS — unified flex container ── */}
       <div
         className="hero-bottom"
         style={{
@@ -424,7 +498,6 @@ function HeroSlider({go}:{go:(p:Page)=>void}) {
           flexWrap:'wrap',
         }}
       >
-        {/* Brand text */}
         <div style={{pointerEvents:'none',flex:'1 1 260px',minWidth:0}}>
           <div style={{display:'flex',alignItems:'center',gap:10,marginBottom:16}}>
             <span style={{color:C.gold,fontSize:10,fontFamily:'monospace',letterSpacing:'.48em',textTransform:'uppercase'}}>
@@ -441,7 +514,6 @@ function HeroSlider({go}:{go:(p:Page)=>void}) {
           </p>
         </div>
 
-        {/* CTA Buttons */}
         <div className="hero-ctas" style={{display:'flex',flexDirection:'column',gap:12,alignItems:'flex-end',flexShrink:0,pointerEvents:'all'}}>
           <GBtn onClick={()=>document.getElementById('svc-section')?.scrollIntoView({behavior:'smooth'})}>
             Our Services
@@ -450,9 +522,6 @@ function HeroSlider({go}:{go:(p:Page)=>void}) {
         </div>
       </div>
 
-
-
-      {/* ── SLIDE COUNTER ── */}
       <div style={{position:'absolute',top:82,right:'6vw',zIndex:10}}>
         <span className="serif" style={{color:C.gold,fontSize:'clamp(1.4rem,2.5vw,2rem)',fontWeight:400}}>
           {String(cur+1).padStart(2,'0')}
@@ -463,7 +532,6 @@ function HeroSlider({go}:{go:(p:Page)=>void}) {
         </span>
       </div>
 
-      {/* ── DOT INDICATORS ── */}
       <div style={{position:'absolute',bottom:70,left:'50%',transform:'translateX(-50%)',display:'flex',gap:7,zIndex:10}}>
         {SLIDES.map((_,i)=>(
           <button key={i} onClick={e=>{e.stopPropagation();goTo(i);}}
@@ -471,7 +539,6 @@ function HeroSlider({go}:{go:(p:Page)=>void}) {
         ))}
       </div>
 
-      {/* ── STATS BAR ── */}
       <div style={{position:'absolute',bottom:0,left:0,right:0,zIndex:10,background:'rgba(6,5,4,.75)',backdropFilter:'blur(12px)',borderTop:`1px solid ${C.goldBr}`,padding:'12px 6vw',display:'flex',justifyContent:'center',gap:'clamp(20px,5vw,72px)',flexWrap:'wrap'}}>
         {[['500+','Projects'],['8','Genres'],['Bangalore','Studio']].map(([v,l])=>(
           <div key={l} style={{textAlign:'center'}}>
@@ -481,13 +548,11 @@ function HeroSlider({go}:{go:(p:Page)=>void}) {
         ))}
       </div>
 
-      {/* ── SCROLL HINT ── */}
       <div style={{position:'absolute',bottom:56,left:'6vw',zIndex:10,display:'flex',alignItems:'center',gap:8,opacity:.5}}>
         <span style={{color:C.muted,fontSize:8,fontFamily:'monospace',letterSpacing:'.4em',textTransform:'uppercase'}}>Scroll</span>
         <div style={{width:1,height:28,background:`linear-gradient(to bottom,${C.gold},transparent)`}}/>
       </div>
 
-      {/* ── RESPONSIVE STYLES ── */}
       <style>{`
         @media(max-width:600px){
           .hero-bottom{
@@ -520,7 +585,6 @@ function Home({go}:{go:(p:Page)=>void}) {
 
       <HeroSlider go={go}/>
 
-      {/* ── SERVICES SHOWCASE ── */}
       <section id="svc-section" style={{padding:'90px 4vw',maxWidth:1380,margin:'0 auto'}}>
         <div style={{textAlign:'center',marginBottom:60}}>
           <div style={{display:'flex',alignItems:'center',justifyContent:'center',gap:10,marginBottom:14}}>
@@ -562,7 +626,6 @@ function Home({go}:{go:(p:Page)=>void}) {
         </div>
       </section>
 
-      {/* ── ABOUT ── */}
       <section style={{background:C.bgDark,borderTop:`1px solid ${C.goldBr}`,borderBottom:`1px solid ${C.goldBr}`,padding:'90px 6vw'}}>
         <div style={{maxWidth:1380,margin:'0 auto',display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(300px,1fr))',gap:70,alignItems:'center'}}>
           <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:4,order:1}} className="about-imgs">
@@ -604,7 +667,6 @@ function Home({go}:{go:(p:Page)=>void}) {
         </div>
       </section>
 
-      {/* ── RENTALS CTA BAND ── */}
       <section id="rentals-band" style={{padding:'80px 6vw',maxWidth:1380,margin:'0 auto',display:'flex',flexWrap:'wrap',alignItems:'center',justifyContent:'space-between',gap:40}}>
         <div style={{maxWidth:520}}>
           <Label>Also Available</Label>
@@ -612,7 +674,7 @@ function Home({go}:{go:(p:Page)=>void}) {
             Studio &amp; Equipment<br/><span style={{color:C.gold,fontStyle:'italic'}}>Rentals</span>
           </h2>
           <Rule/>
-          <p style={{color:C.muted,lineHeight:1.85,fontWeight:300,fontSize:14}}>Sony, Canon &amp; Nikon cameras — professional lenses — all maintained and production-ready for your next project.</p>
+          <p style={{color:C.muted,lineHeight:1.85,fontWeight:300,fontSize:14}}>Sony, Canon &amp; GoPro cameras — professional lenses — all maintained and production-ready for your next project.</p>
         </div>
         <div style={{display:'flex',flexDirection:'column',gap:12}}>
           <GBtn onClick={()=>{go('rentals');window.scrollTo(0,0);}}>Browse Rental Gear</GBtn>
@@ -620,7 +682,6 @@ function Home({go}:{go:(p:Page)=>void}) {
         </div>
       </section>
 
-      {/* ── CONTACT ── */}
       <section style={{background:C.bgDark,borderTop:`1px solid ${C.goldBr}`,padding:'88px 6vw',textAlign:'center'}}>
         <div style={{maxWidth:600,margin:'0 auto'}}>
           <Label>Get in Touch</Label>
@@ -728,11 +789,16 @@ function Gallery({svc,go}:{svc:typeof SVCS[0];go:(p:Page)=>void}) {
 // ═══════════════════════════════════════════════════════════════════════════════
 function Rentals({go}:{go:(p:Page)=>void}) {
   const [type, setType]=useState<'all'|'camera'|'lens'>('all');
-  const [brand,setBrand]=useState<'all'|'Sony'|'Canon'|'Nikon'>('all');
+  const [brand,setBrand]=useState<'all'|'Sony'|'Canon'|'GoPro'|'Insta360'>('all');
 
   const items=GEAR.filter(g=>(type==='all'||g.type===type)&&(brand==='all'||g.brand===brand));
 
-  const bCol={Sony:{bg:'rgba(0,90,210,.14)',br:'rgba(60,130,230,.3)',tx:'#88b4ff'},Canon:{bg:'rgba(210,20,20,.14)',br:'rgba(230,60,60,.3)',tx:'#ff9090'},Nikon:{bg:'rgba(20,160,20,.12)',br:'rgba(60,190,60,.28)',tx:'#88de88'}};
+  const bCol={
+    Sony:    {bg:'rgba(0,90,210,.14)',   br:'rgba(60,130,230,.3)',  tx:'#88b4ff'},
+    Canon:   {bg:'rgba(210,20,20,.14)',  br:'rgba(230,60,60,.3)',   tx:'#ff9090'},
+    GoPro:   {bg:'rgba(0,160,100,.12)',  br:'rgba(0,200,120,.28)',  tx:'#88ffcc'},
+    Insta360:{bg:'rgba(180,0,210,.12)',  br:'rgba(200,60,230,.28)', tx:'#e088ff'},
+  };
 
   const Fb=({label,active,fn}:{label:string;active:boolean;fn:()=>void})=>(
     <button onClick={fn}
@@ -806,7 +872,7 @@ function Rentals({go}:{go:(p:Page)=>void}) {
             <div>
               <div style={{color:C.gold,fontSize:9,fontFamily:'monospace',letterSpacing:'.42em',textTransform:'uppercase',marginBottom:9}}>Brand</div>
               <div style={{display:'flex',gap:4,flexWrap:'wrap'}}>
-                {(['all','Sony','Canon','Nikon'] as const).map(b=>(
+                {(['all','Sony','Canon','GoPro','Insta360'] as const).map(b=>(
                   <Fb key={b} label={b==='all'?'All Brands':b} active={brand===b} fn={()=>setBrand(b)}/>
                 ))}
               </div>
@@ -899,12 +965,12 @@ export default function App() {
       <div style={{opacity:loaded?1:0,transition:'opacity .55s'}}>
         <Nav cur={page} go={go}/>
         <main>
-          {page==='home'    && <Home    go={go}/>}
-          {page==='rentals' && <Rentals go={go}/>}
-          {svc              && <Gallery svc={svc} go={go}/>}
+          {page==='home'    ? <Home    go={go}/> :
+           page==='rentals' ? <Rentals go={go}/> :
+           svc              ? <Gallery svc={svc} go={go}/> :
+                              <Home    go={go}/>}
         </main>
       </div>
     </>
   );
 }
-
