@@ -42,13 +42,10 @@ type Page = 'home'|'rentals'|string;
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 const SVCS = [
-  {id:'maternity',  short:'Maternity',  label:'Maternity Photography',  desc:'Capturing the radiance and joy of new beginnings.',           cover:'maternity1.png',  imgs:['maternity1.png','maternity2.png','maternity3.png','maternity4.png','maternity5.png','maternity6.png','maternity7.png','maternity8.png']},
-  {id:'prewedding', short:'Pre-Wedding', label:'Pre-Wedding Photography', desc:'Your love story, beautifully told before the big day.',        cover:'preWedding1.png', imgs:['preWedding1.png','preWedding2.png','preWedding3.png','preWedding4.png','preWedding5.png','preWedding6.png','preWedding7.png','preWedding8.png']},
-  {id:'wedding',    short:'Wedding',    label:'Wedding Photography',     desc:'Every vow and emotion, preserved with artistry.',              cover:'Wedding1.png',    imgs:['Wedding1.png','Wedding2.png','Wedding3.png','Wedding4.png','Wedding5.png','Wedding6.png','Wedding7.png','Wedding8.png']},
-  {id:'modelling',  short:'Modelling',  label:'Modelling Shoot',         desc:'Powerful portraits that define your brand and presence.',      cover:'modelling1.png',  imgs:['modelling1.png','modelling2.png','modelling3.png','modelling4.png','modelling5.png','modelling6.png','modelling7.png','modelling8.png']},
-  {id:'portfolio',  short:'Portfolio',  label:'Portfolio Shoots',        desc:'A professional portfolio that opens doors.',                   cover:'Portfolio1.png',  imgs:['Portfolio1.png','Portfolio2.png','Portfolio3.png','Portfolio4.png','Portfolio5.png','Portfolio6.png','Portfolio7.png','Portfolio8.png']},
-  {id:'product',    short:'Product',    label:'Product Photography',     desc:'Visuals engineered to make your products irresistible.',       cover:'product1.png',    imgs:['product1.png','product2.png','Product3.png','Product4.png','product5.png','product6.png','product7.png','product8.png']},
-  {id:'commercial', short:'Commercial', label:'Commercial Photography',  desc:'Campaign imagery that commands attention and builds brands.',  cover:'commercial1.png', imgs:['commercial1.png','commercial2.png','commercial3.png','Commercial4.png','commercial5.png','commercial6.png','commercial7.png','commercial8.png']},
+  {id:'maternity',  short:'Maternity',  label:'Maternity Photography',  desc:'Capturing the radiance and joy of new beginnings.',      cover:'maternity1.png',  imgs:['maternity1.png','maternity2.png','maternity3.png','maternity4.png','maternity5.png','maternity6.png','maternity7.png','maternity8.png']},
+  {id:'prewedding', short:'Pre-Wedding',label:'Pre-Wedding Photography',desc:'Your love story, beautifully told before the big day.',   cover:'preWedding1.png', imgs:['preWedding1.png','preWedding2.png','preWedding3.png','preWedding4.png','preWedding5.png','preWedding6.png']},
+  {id:'wedding',    short:'Wedding',    label:'Wedding Photography',    desc:'Every vow and emotion, preserved with artistry.',         cover:'Wedding1.png',    imgs:['Wedding1.png','Wedding2.png','Wedding3.png','Wedding4.png','Wedding5.png','Wedding6.png','Wedding7.png','Wedding8.png']},
+  {id:'modelling',  short:'Modelling', label:'Modelling Shoot',         desc:'Powerful portraits that define your brand and presence.', cover:'modelling1.png',  imgs:['modelling1.png','modelling2.png','modelling3.png','modelling4.png','modelling5.png','modelling6.png','modelling7.png','modelling8.png']},
 ];
 
 type Gear = {name:string;img:string;brand:string;type:'camera'|'lens'};
@@ -57,7 +54,7 @@ const GEAR:Gear[] = [
   {name:'Canon 5D Mark IV with 24-70mm Lens',  img:'canon-5d-mark-iv-with-24-70mm-lens.jpg',          brand:'Canon', type:'camera'},
   {name:'Canon EOS R5 Mark II',                img:'canon-eos--r5-mark-ii-camera.jpg',                 brand:'Canon', type:'camera'},
   {name:'Canon EOS R5 Mirrorless Digital',     img:'canon-eos-r5-mirrorless-digital-camera.jpg',       brand:'Canon', type:'camera'},
-  {name:'Canon EOS R6 Mark II',                img:'canon-eos-r6-mark-ii camera.jpg',                  brand:'Canon', type:'camera'},
+  {name:'Canon EOS R6 Mark II',                img:'canon-eos-r6-mark-ii-camera.jpg',                  brand:'Canon', type:'camera'},
   {name:'Canon EOS R6 Mirrorless Digital',     img:'canon-eos-r6-mirrorless-digital-camera.jpg',       brand:'Canon', type:'camera'},
   {name:'GoPro Hero 11',                       img:'gopro-hero-11.jpg',                                brand:'GoPro', type:'camera'},
   {name:'GoPro Hero 13 Black',                 img:'gopro-hero-13-black.jpg',                          brand:'GoPro', type:'camera'},
@@ -69,7 +66,7 @@ const GEAR:Gear[] = [
   {name:'Sony A7S III E-Mount',                img:'sony-a7s-iii-e-mount.jpg',                         brand:'Sony',  type:'camera'},
   {name:'Sony FX3 Full-Frame Cinema',          img:'sony-fx3-full-frame-cinema-camera (1).jpg',         brand:'Sony',  type:'camera'},
   {name:'Sony FX6 Full-Frame Cinema',          img:'sony-fx6-full-frame-cinema-camera.jpg',             brand:'Sony',  type:'camera'},
-  {name:'Sony PXW-FX9 XD Cam 6K Full-Frame',  img:'sony-pxw-fx9-xd-cam-6k-full-frame-camera.jpg',     brand:'Sony',  type:'camera'},
+  {name:'Sony PXW-FX9 XD Cam 6K Full-Frame',  img:'sony-pxw-fx9-xdcam-6k-full-frame-camera.jpg',     brand:'Sony',  type:'camera'},
 
   // ── LENSES ──
   {name:'Canon RF 15-35mm F2.8L IS',           img:'canon-rf-15-35mm-f2.8l-is-lens.jpg',               brand:'Canon', type:'lens'},
@@ -79,19 +76,19 @@ const GEAR:Gear[] = [
   {name:'Canon RF 50mm F1.2',                  img:'canon-rf-50mm-1.2.jpg',                             brand:'Canon', type:'lens'},
   {name:'Canon RF 50mm F1.8 STM',              img:'canon-rf-50mm-f1.8-stm-lens.jpg',                  brand:'Canon', type:'lens'},
   {name:'Canon RF 70-200mm F2.8L IS',          img:'canon-rf-70-200mm-f2.8l-is-lens.jpg',              brand:'Canon', type:'lens'},
-  {name:'Canon RF 85mm F1.2L USM',             img:'canon-rf-85mm-f1.2-l-usm-lens.jpg',                brand:'Canon', type:'lens'},
+  {name:'Canon RF 85mm F1.2L USM',             img:'canon-rf-85mm-f-1.2-l-usm-lens.jpg',                brand:'Canon', type:'lens'},
   {name:'Canon RF 85mm F2 Macro IS STM',       img:'canon-rf-85mm-f2-macro-is-stm-lens.jpg',           brand:'Canon', type:'lens'},
   {name:'Canon RF 100mm F2.8L Macro IS USM',   img:'canon-rf-100mm-f2.8-l-macro-is-usm-lens.jpg',      brand:'Canon', type:'lens'},
-  {name:'Sony FE 12-24mm F2.8 GM',             img:'sony-fe-12-24m-m-f2.8-gm-lens.jpg',                brand:'Sony',  type:'lens'},
-  {name:'Sony FE 12-24mm F4 G',                img:'sony-fe-12-24m-m-f4-g-lens.jpg',                   brand:'Sony',  type:'lens'},
+  {name:'Sony FE 12-24mm F2.8 GM',             img:'sony-fe-12-24mm-f2.8-gm-lens.jpg',                brand:'Sony',  type:'lens'},
+  {name:'Sony FE 12-24mm F4 G',                img:'sony-fe-12-24mm-f4-g-lens.jpg',                   brand:'Sony',  type:'lens'},
   {name:'Sony FE 14mm F1.8 GM',                img:'sony-fe-14mm-f1.8-gm-lens.jpg',                    brand:'Sony',  type:'lens'},
-  {name:'Sony FE 16-35mm F2.8 GM',             img:'sony-fe-16-35m-m-f2.8-gm-lens.jpg',                brand:'Sony',  type:'lens'},
-  {name:'Sony FE 24-70mm F2.8 GM',             img:'sony-fe-24-70m-m-f2.8-gm-lens.jpg',                brand:'Sony',  type:'lens'},
+  {name:'Sony FE 16-35mm F2.8 GM',             img:'sony-fe-16-35mm-f2.8-gm-lens.jpg',                brand:'Sony',  type:'lens'},
+  {name:'Sony FE 24-70mm F2.8 GM',             img:'sony-fe-24-70mm-f2.8-gm-lens.jpg',                brand:'Sony',  type:'lens'},
   {name:'Sony FE 24mm F1.4 GM',                img:'sony-fe-24mm-f1.4-gm-lens.jpg',                    brand:'Sony',  type:'lens'},
   {name:'Sony FE 35mm F1.4 GM',                img:'sony-fe-35mm--f1.4-gm-lens.jpg',                   brand:'Sony',  type:'lens'},
   {name:'Sony FE 50mm F1.2 GM',                img:'sony-fe-50mm--f1.2-gm-lens.jpg',                   brand:'Sony',  type:'lens'},
   {name:'Sony FE 50mm F1.8',                   img:'sony-fe-50mm-f1.8-lens.jpg',                       brand:'Sony',  type:'lens'},
-  {name:'Sony FE 70-200mm F2.8 GM',            img:'sony-fe-70-200m-m-f2.8-gm-lens.jpg',               brand:'Sony',  type:'lens'},
+  {name:'Sony FE 70-200mm F2.8 GM',            img:'sony-fe-70-200mm-f2.8-gm-lens.jpg',               brand:'Sony',  type:'lens'},
   {name:'Sony FE 85mm F1.4 GM',                img:'sony-fe-85mm-f1.4-gm-lens.jpg',                    brand:'Sony',  type:'lens'},
   {name:'Sony FE 90mm Macro F2.8 G OSS',       img:'sony-fe-90mm-macro-f2.8-g-oss-lens.jpg',           brand:'Sony',  type:'lens'},
   {name:'Sony FE 100-400mm F4.5-5.6 GM OSS',   img:'sony-fe-100-400mm-f4.5-5.6-gm-oss-lens.jpg',      brand:'Sony',  type:'lens'},
@@ -210,7 +207,7 @@ function Nav({cur,go}:{cur:Page;go:(p:Page)=>void}) {
     return()=>document.removeEventListener('mousedown',fn);
   },[]);
 
-  const nav=(p:string)=>{go(p);setOpen(false);setSvcOpen(false);setMobileSvcOpen(false);window.scrollTo(0,0);};
+  const nav=(p:string)=>{go(p);setOpen(false);setSvcOpen(false);setMobileSvcOpen(false);};
   const isService=SVCS.some(s=>s.id===cur);
 
   return (
@@ -367,7 +364,7 @@ function Footer({go}:{go:(p:Page)=>void}) {
         <div>
           <div style={{color:C.gold,fontSize:9,letterSpacing:'.42em',textTransform:'uppercase',fontFamily:'monospace',marginBottom:15}}>Services</div>
           {SVCS.map(s=>(
-            <button key={s.id} onClick={()=>{go(s.id);window.scrollTo(0,0);}}
+            <button key={s.id} onClick={()=>{go(s.id);}}
               style={{display:'block',background:'none',border:'none',cursor:'pointer',color:C.muted,fontSize:13,padding:'3px 0',textAlign:'left',transition:'color .2s'}}
               onMouseEnter={e=>(e.currentTarget.style.color=C.gold)}
               onMouseLeave={e=>(e.currentTarget.style.color=C.muted)}>
@@ -405,7 +402,7 @@ function Footer({go}:{go:(p:Page)=>void}) {
 // ═══════════════════════════════════════════════════════════════════════════════
 const SLIDES = [
   'slide1.jpg','slide2.jpg','slide3.jpg','slide4.jpg','slide5.jpg',
-  'slide6.jpg','slide7.jpg','slide8.jpg','slide9.jpg','slide10.jpg',
+  'slide6.jpg','slide7.jpg','slide8.jpg','slide9.jpg',
 ];
 
 function HeroSlider({go}:{go:(p:Page)=>void}) {
@@ -602,7 +599,7 @@ function Home({go}:{go:(p:Page)=>void}) {
 
         <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(270px,1fr))',gap:4}}>
           {SVCS.map((s,i)=>(
-            <button key={s.id} onClick={()=>{go(s.id);window.scrollTo(0,0);}}
+            <button key={s.id} onClick={()=>{go(s.id);}}
               style={{position:'relative',aspectRatio:'4/5',overflow:'hidden',background:C.bgCard,border:`1px solid ${C.ghost}`,cursor:'pointer',display:'block',padding:0}}
               className={`sv-${i}`}>
               <div style={{position:'absolute',inset:0,transition:'transform .65s'}} className={`sv-img-${i}`}>
@@ -660,7 +657,7 @@ function Home({go}:{go:(p:Page)=>void}) {
               ))}
             </div>
             <div style={{display:'flex',gap:12,flexWrap:'wrap'}}>
-              <GBtn onClick={()=>{go('rentals');window.scrollTo(0,0);}}>View Rentals</GBtn>
+              <GBtn onClick={()=>{go('rentals');}}>View Rentals</GBtn>
               <WaBtn href={waP('photography')}/>
             </div>
           </div>
@@ -677,7 +674,7 @@ function Home({go}:{go:(p:Page)=>void}) {
           <p style={{color:C.muted,lineHeight:1.85,fontWeight:300,fontSize:14}}>Sony, Canon &amp; GoPro cameras — professional lenses — all maintained and production-ready for your next project.</p>
         </div>
         <div style={{display:'flex',flexDirection:'column',gap:12}}>
-          <GBtn onClick={()=>{go('rentals');window.scrollTo(0,0);}}>Browse Rental Gear</GBtn>
+          <GBtn onClick={()=>{go('rentals');}}>Browse Rental Gear</GBtn>
           <WaBtn href={`${WA_R}${encodeURIComponent('Hi Nagarjun, I would like to enquire about equipment rentals at The Clicky Clicks.')}`}/>
         </div>
       </section>
@@ -716,21 +713,46 @@ function Home({go}:{go:(p:Page)=>void}) {
 // ═══════════════════════════════════════════════════════════════════════════════
 function Gallery({svc,go}:{svc:typeof SVCS[0];go:(p:Page)=>void}) {
   const [lb,setLb]=useState<number|null>(null);
+
+  // Open lightbox: push a history state so back button closes it
+  const openLb=(i:number)=>{
+    setLb(i);
+    window.history.pushState({page:svc.id,lightbox:true},'',window.location.pathname);
+  };
+
+  // Close lightbox
+  const closeLb=()=>{
+    setLb(null);
+  };
+
+  // Keyboard nav + back button handling inside gallery
   useEffect(()=>{
-    const fn=(e:KeyboardEvent)=>{
+    const onKey=(e:KeyboardEvent)=>{
       if(lb===null)return;
       if(e.key==='ArrowRight')setLb(p=>p!==null?Math.min(p+1,svc.imgs.length-1):null);
       if(e.key==='ArrowLeft') setLb(p=>p!==null?Math.max(p-1,0):null);
-      if(e.key==='Escape')    setLb(null);
+      if(e.key==='Escape'){window.history.back();}
     };
-    window.addEventListener('keydown',fn);
-    return()=>window.removeEventListener('keydown',fn);
-  },[lb,svc.imgs.length]);
+    const onPop=(e:PopStateEvent)=>{
+      // If lightbox is open, close it and stay on gallery page
+      if(lb!==null){
+        setLb(null);
+        // Re-push the gallery state so back still works to go home
+        window.history.pushState({page:svc.id},'',window.location.pathname);
+      }
+    };
+    window.addEventListener('keydown',onKey);
+    window.addEventListener('popstate',onPop);
+    return()=>{
+      window.removeEventListener('keydown',onKey);
+      window.removeEventListener('popstate',onPop);
+    };
+  },[lb,svc.imgs.length,svc.id]);
 
   return (
     <div style={{background:C.bg,minHeight:'100vh'}}>
       <section style={{padding:'90px 6vw 52px',maxWidth:1380,margin:'0 auto'}}>
-        <button onClick={()=>{go('home');window.scrollTo(0,0);}}
+        <button onClick={()=>{go('home');}}
           style={{background:'none',border:'none',cursor:'pointer',color:C.gold,fontFamily:'monospace',fontSize:10,letterSpacing:'.32em',textTransform:'uppercase',marginBottom:26,display:'flex',alignItems:'center',gap:7}}>
           ← Back to Home
         </button>
@@ -743,7 +765,7 @@ function Gallery({svc,go}:{svc:typeof SVCS[0];go:(p:Page)=>void}) {
       <section style={{padding:'0 3px 80px',maxWidth:1380,margin:'0 auto'}}>
         <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill,minmax(250px,1fr))',gap:3}}>
           {svc.imgs.map((img,i)=>(
-            <div key={i} onClick={()=>setLb(i)}
+            <div key={i} onClick={()=>openLb(i)}
               style={{position:'relative',aspectRatio:'3/4',overflow:'hidden',background:C.bgCard,cursor:'pointer',border:`1px solid ${C.ghost}`}}
               className={`gw-${i}`}>
               <div style={{position:'absolute',inset:0}}><SafeImg src={img} alt={`${svc.short} ${i+1}`} cls={`gi-${i}`} style={{transition:'transform .6s'}}/></div>
@@ -768,13 +790,13 @@ function Gallery({svc,go}:{svc:typeof SVCS[0];go:(p:Page)=>void}) {
       </section>
 
       {lb!==null&&(
-        <div onClick={()=>setLb(null)}
+        <div onClick={()=>{window.history.back();}}
           style={{position:'fixed',inset:0,zIndex:999,background:'rgba(4,3,2,.96)',display:'flex',alignItems:'center',justifyContent:'center'}}>
           <div onClick={e=>e.stopPropagation()} style={{position:'relative',maxWidth:'90vw',maxHeight:'90vh'}}>
             <img src={`/${svc.imgs[lb]}`} alt="" style={{maxWidth:'90vw',maxHeight:'85vh',objectFit:'contain',display:'block',border:`1px solid ${C.goldBr}`}}/>
             {lb>0&&<button onClick={()=>setLb(lb-1)} style={{position:'absolute',left:-46,top:'50%',transform:'translateY(-50%)',background:'transparent',border:`1px solid ${C.goldBr}`,color:C.gold,width:34,height:34,cursor:'pointer',fontSize:20,display:'flex',alignItems:'center',justifyContent:'center'}}>‹</button>}
             {lb<svc.imgs.length-1&&<button onClick={()=>setLb(lb+1)} style={{position:'absolute',right:-46,top:'50%',transform:'translateY(-50%)',background:'transparent',border:`1px solid ${C.goldBr}`,color:C.gold,width:34,height:34,cursor:'pointer',fontSize:20,display:'flex',alignItems:'center',justifyContent:'center'}}>›</button>}
-            <button onClick={()=>setLb(null)} style={{position:'absolute',top:-38,right:0,background:'none',border:'none',color:C.gold,cursor:'pointer',fontSize:22}}>✕</button>
+            <button onClick={()=>window.history.back()} style={{position:'absolute',top:-38,right:0,background:'none',border:'none',color:C.gold,cursor:'pointer',fontSize:22}}>✕</button>
             <div style={{textAlign:'center',marginTop:10,color:'rgba(242,237,228,.25)',fontFamily:'monospace',fontSize:10,letterSpacing:'.28em'}}>{lb+1} / {svc.imgs.length}</div>
           </div>
         </div>
@@ -818,7 +840,7 @@ function Rentals({go}:{go:(p:Page)=>void}) {
     <div style={{background:C.bg,minHeight:'100vh'}}>
 
       <section style={{padding:'90px 6vw 56px',maxWidth:1380,margin:'0 auto',borderBottom:`1px solid ${C.goldBr}`}}>
-        <button onClick={()=>{go('home');window.scrollTo(0,0);}}
+        <button onClick={()=>{go('home');}}
           style={{background:'none',border:'none',cursor:'pointer',color:C.gold,fontFamily:'monospace',fontSize:10,letterSpacing:'.32em',textTransform:'uppercase',marginBottom:26,display:'flex',alignItems:'center',gap:7}}>
           ← Back to Home
         </button>
@@ -955,7 +977,32 @@ function Rentals({go}:{go:(p:Page)=>void}) {
 export default function App() {
   const [loaded,setLoaded]=useState(false);
   const [page,  setPage  ]=useState<Page>('home');
-  const go=useCallback((p:Page)=>setPage(p),[]);
+  const isFirst=useRef(true);
+
+  const go=useCallback((p:Page)=>{
+    setPage(p);
+    window.history.pushState({page:p},'',window.location.pathname);
+    window.scrollTo(0,0);
+  },[]);
+
+  // Replace initial history state on mount
+  useEffect(()=>{
+    window.history.replaceState({page:'home'},'',window.location.pathname);
+  },[]);
+
+  // Handle browser back/forward button
+  useEffect(()=>{
+    const fn=(e:PopStateEvent)=>{
+      // If it's a lightbox state, Gallery handles it — ignore here
+      if(e.state&&e.state.lightbox) return;
+      const p:Page=(e.state&&e.state.page)?e.state.page:'home';
+      setPage(p);
+      window.scrollTo(0,0);
+    };
+    window.addEventListener('popstate',fn);
+    return()=>window.removeEventListener('popstate',fn);
+  },[]);
+
   const svc=SVCS.find(s=>s.id===page);
 
   return (
