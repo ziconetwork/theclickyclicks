@@ -306,12 +306,6 @@ function Nav({ cur, go }: { cur: Page; go: (p: Page) => void }) {
                     {cur === s.id && <span style={{ color: C.gold, marginRight: 7, fontSize: 8 }}>✦</span>}{s.short}
                   </button>
                 ))}
-                <button onClick={() => nav('rentals')}
-                  style={{ display: 'flex', alignItems: 'center', gap: 8, width: '100%', background: `linear-gradient(135deg,${C.goldLo},rgba(200,168,75,0.08))`, border: 'none', borderTop: `1px solid ${C.goldBr}`, padding: '12px 20px', cursor: 'pointer', fontFamily: "'Raleway',sans-serif", fontSize: 10, letterSpacing: '.22em', textTransform: 'uppercase', color: C.gold, transition: 'background .18s' }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = C.goldLo; }}
-                  onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = `linear-gradient(135deg,${C.goldLo},rgba(200,168,75,0.08))`; }}>
-                  <span style={{ fontSize: 11 }}>📷</span> View Rentals
-                </button>
               </div>
             )}
           </div>
@@ -348,10 +342,6 @@ function Nav({ cur, go }: { cur: Page; go: (p: Page) => void }) {
                   {s.short}
                 </button>
               ))}
-              <button onClick={() => nav('rentals')}
-                style={{ display: 'flex', alignItems: 'center', gap: 8, width: '100%', background: C.goldLo, border: 'none', borderTop: `1px solid ${C.goldBr}`, padding: '10px 0', cursor: 'pointer', fontFamily: "'Raleway',sans-serif", fontSize: 10, letterSpacing: '.24em', textTransform: 'uppercase', color: C.gold }}>
-                <span style={{ fontSize: 11 }}>📷</span> View Rentals
-              </button>
             </div>
           )}
           <button onClick={() => nav('rentals')}
@@ -764,7 +754,7 @@ function Rentals({ go }: { go: (p: Page) => void }) {
           <div>
             <Label>The Clicky Clicks — Nagarjun S</Label>
             <h1 className="serif" style={{ color: C.cream, fontSize: 'clamp(2.2rem,5.5vw,5rem)', fontWeight: 400, lineHeight: 1, letterSpacing: '.02em' }}>
-              Equipment<br /><span style={{ color: C.gold, fontStyle: 'italic' }}>Rentals</span>
+              Nagarjun's<br /><span style={{ color: C.gold, fontStyle: 'italic' }}>Camera House</span>
             </h1>
             <Rule w={56} />
             <p style={{ color: C.muted, fontSize: 14, maxWidth: 480, lineHeight: 1.85, fontWeight: 300 }}>Premium cameras and professional lenses — maintained and production-ready. Available for photographers, filmmakers &amp; content creators across Bangalore.</p>
