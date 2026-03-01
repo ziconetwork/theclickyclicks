@@ -385,7 +385,7 @@ function HeroSlider({go}:{go:(p:Page)=>void}) {
 
   return (
     <section
-      style={{position:'relative',height:'100vh',overflow:'hidden',background:C.bgDark,cursor:'grab',userSelect:'none'}}
+      style={{position:'relative',height:'calc(100vh - 62px)',overflow:'hidden',background:C.bgDark,cursor:'grab',userSelect:'none',marginTop:62}}
       onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}
       onMouseDown={onMouseDown} onMouseMove={onMouseMove} onMouseUp={onMouseUp} onMouseLeave={onMouseLeave}
     >
@@ -402,7 +402,7 @@ function HeroSlider({go}:{go:(p:Page)=>void}) {
             zIndex:i===cur?2:1,willChange:'transform',
           }}>
             <SafeImg src={img} alt={`slide ${i+1}`} style={{objectFit:'cover',pointerEvents:'none'}}/>
-            <div style={{position:'absolute',inset:0,background:'linear-gradient(to top, rgba(6,5,4,.88) 0%, rgba(6,5,4,.3) 45%, rgba(6,5,4,.08) 100%)'}}/>
+            <div style={{position:'absolute',inset:0,background:'linear-gradient(to bottom, rgba(6,5,4,.7) 0%, rgba(6,5,4,.0) 20%), linear-gradient(to top, rgba(6,5,4,.88) 0%, rgba(6,5,4,.3) 45%, rgba(6,5,4,.08) 100%)'}}/>
           </div>
         );
       })}
@@ -427,7 +427,6 @@ function HeroSlider({go}:{go:(p:Page)=>void}) {
         {/* Brand text */}
         <div style={{pointerEvents:'none',flex:'1 1 260px',minWidth:0}}>
           <div style={{display:'flex',alignItems:'center',gap:10,marginBottom:16}}>
-            <div style={{width:28,height:1,background:C.gold,flexShrink:0}}/>
             <span style={{color:C.gold,fontSize:10,fontFamily:'monospace',letterSpacing:'.48em',textTransform:'uppercase'}}>
               Bangalore's Premier Photography Studio
             </span>
@@ -908,3 +907,4 @@ export default function App() {
     </>
   );
 }
+
