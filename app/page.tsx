@@ -50,66 +50,98 @@ type Page = 'home'|'rentals'|string;
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 const SVCS = [
-  {id:'maternity',  short:'Maternity',  label:'Maternity Photography',  desc:'Capturing the radiance and joy of new beginnings.',      cover:'maternity1.png',  imgs:['maternity1.png','maternity2.png','maternity3.png','maternity4.png','maternity5.png','maternity6.png','maternity7.png','maternity8.png']},
-  {id:'prewedding', short:'Pre-Wedding',label:'Pre-Wedding Photography',desc:'Your love story, beautifully told before the big day.',   cover:'preWedding1.png', imgs:['preWedding1.png','preWedding2.png','preWedding3.png','preWedding4.png','preWedding5.png','preWedding6.png']},
-  {id:'wedding',    short:'Wedding',    label:'Wedding Photography',    desc:'Every vow and emotion, preserved with artistry.',         cover:'Wedding1.png',    imgs:['Wedding1.png','Wedding2.png','Wedding3.png','Wedding4.png','Wedding5.png','Wedding6.png','Wedding7.png','Wedding8.png']},
-  {id:'modelling',  short:'Modelling', label:'Modelling Shoot',         desc:'Powerful portraits that define your brand and presence.', cover:'modelling1.png',  imgs:['modelling1.png','modelling2.png','modelling3.png','modelling4.png','modelling5.png','modelling6.png','modelling7.png','modelling8.png']},
+  {
+    id:'maternity',
+    short:'Maternity',
+    label:'Maternity Photography',
+    desc:'Capturing the radiance and joy of new beginnings.',
+    cover:'maternity1.png',
+    imgs:['maternity1.png','maternity2.png','maternity3.png','maternity4.png','maternity5.png','maternity6.png','maternity7.png','maternity8.png'],
+  },
+  {
+    id:'prewedding',
+    short:'Pre-Wedding',
+    label:'Pre-Wedding Photography',
+    desc:'Your love story, beautifully told before the big day.',
+    cover:'preWedding1.png',
+    imgs:['preWedding1.png','preWedding2.png','preWedding3.png','preWedding4.png','preWedding5.png','preWedding6.png'],
+  },
+  {
+    id:'wedding',
+    short:'Wedding',
+    label:'Wedding Photography',
+    desc:'Every vow and emotion, preserved with artistry.',
+    cover:'wedding (1).jpg',
+    imgs:[
+      'wedding (1).jpg','wedding (2).jpg','wedding (3).jpg','wedding (4).JPG',
+      'wedding (5).JPG','wedding (6).JPG','wedding (7).jpg','wedding (8).JPG',
+      'wedding (9).jpg','wedding (10).JPG','wedding (11).jpg','wedding (12).jpg',
+      'wedding (13).JPG','wedding (14).JPG','wedding (15).jpg',
+    ],
+  },
+  {
+    id:'modelling',
+    short:'Modelling',
+    label:'Modelling Shoot',
+    desc:'Powerful portraits that define your brand and presence.',
+    cover:'modelling1.png',
+    imgs:['modelling1.png','modelling2.png','modelling3.png','modelling4.png','modelling5.png','modelling6.png','modelling7.png','modelling8.png'],
+  },
 ];
 
 type Gear = {name:string;img:string;brand:string;type:'camera'|'lens'};
 const GEAR:Gear[] = [
   // ── CAMERAS ──
-  {name:'Canon 5D Mark IV with 24-70mm Lens',  img:'canon-5d-mark-iv-with-24-70mm-lens.jpg',          brand:'Canon', type:'camera'},
-  {name:'Canon EOS R5 Mark II',                img:'canon-eos--r5-mark-ii-camera.jpg',                 brand:'Canon', type:'camera'},
-  {name:'Canon EOS R5 Mirrorless Digital',     img:'canon-eos-r5-mirrorless-digital-camera.jpg',       brand:'Canon', type:'camera'},
-  {name:'Canon EOS R6 Mark II',                img:'canon-eos-r6-mark-ii-camera.jpg',                  brand:'Canon', type:'camera'},
-  {name:'Canon EOS R6 Mirrorless Digital',     img:'canon-eos-r6-mirrorless-digital-camera.jpg',       brand:'Canon', type:'camera'},
-  {name:'GoPro Hero 11',                       img:'gopro-hero-11.jpg',                                brand:'GoPro', type:'camera'},
-  {name:'GoPro Hero 13 Black',                 img:'gopro-hero-13-black.jpg',                          brand:'GoPro', type:'camera'},
-  {name:'Insta360 X3',                         img:'insta-360x3-camera.jpg',                           brand:'Insta360', type:'camera'},
-  {name:'Sony A7 III E-Mount',                 img:'sony-a7-iii-e-mount.png',                          brand:'Sony',  type:'camera'},
-  {name:'Sony A7 IV E-Mount',                  img:'sony--a7-iv-e-mount.jpg',                          brand:'Sony',  type:'camera'},
-  {name:'Sony A7R IV E-Mount',                 img:'sony-a7r-iv-e-mount.jpg',                          brand:'Sony',  type:'camera'},
-  {name:'Sony A7R V E-Mount',                  img:'sony-a7r-v-camera-e-mount.jpg',                    brand:'Sony',  type:'camera'},
-  {name:'Sony A7S III E-Mount',                img:'sony-a7s-iii-e-mount.jpg',                         brand:'Sony',  type:'camera'},
-  {name:'Sony FX3 Full-Frame Cinema',          img:'sony-fx3-full-frame-cinema-camera (1).jpg',         brand:'Sony',  type:'camera'},
-  {name:'Sony FX6 Full-Frame Cinema',          img:'sony-fx6-full-frame-cinema-camera.jpg',             brand:'Sony',  type:'camera'},
-  {name:'Sony PXW-FX9 XD Cam 6K Full-Frame',  img:'sony-pxw-fx9-xdcam-6k-full-frame-camera.jpg',     brand:'Sony',  type:'camera'},
+  {name:'Canon 5D Mark IV with 24-70mm Lens',  img:'canon-5d-mark-iv-with-24-70mm-lens.jpg',         brand:'Canon',    type:'camera'},
+  {name:'Canon EOS R5 Mark II',                img:'canon-eos--r5-mark-ii-camera.jpg',                brand:'Canon',    type:'camera'},
+  {name:'Canon EOS R5 Mirrorless Digital',     img:'canon-eos-r5-mirrorless-digital-camera.jpg',      brand:'Canon',    type:'camera'},
+  {name:'Canon EOS R6 Mark II',                img:'canon-eos-r6-mark-ii camera.jpg',                 brand:'Canon',    type:'camera'},
+  {name:'Canon EOS R6 Mirrorless Digital',     img:'canon-eos-r6-mirrorless-digital-camera.jpg',      brand:'Canon',    type:'camera'},
+  {name:'GoPro Hero 11',                       img:'gopro-hero-11.jpg',                               brand:'GoPro',    type:'camera'},
+  {name:'GoPro Hero 13 Black',                 img:'gopro-hero-13-black.jpg',                         brand:'GoPro',    type:'camera'},
+  {name:'Insta360 X3',                         img:'insta-360x3-camera.jpg',                          brand:'Insta360', type:'camera'},
+  {name:'Sony A7 III E-Mount',                 img:'sony-a7-iii-e-mount.png',                         brand:'Sony',     type:'camera'},
+  {name:'Sony A7 IV E-Mount',                  img:'sony--a7-iv-e-mount.jpg',                         brand:'Sony',     type:'camera'},
+  {name:'Sony A7R IV E-Mount',                 img:'sony-a7r-iv-e-mount.jpg',                         brand:'Sony',     type:'camera'},
+  {name:'Sony A7R V E-Mount',                  img:'sony-a7r-v-camera-e-mount.jpg',                   brand:'Sony',     type:'camera'},
+  {name:'Sony A7S III E-Mount',                img:'sony-a7s-iii-e-mount.jpg',                        brand:'Sony',     type:'camera'},
+  {name:'Sony FX3 Full-Frame Cinema',          img:'sony-fx3-full-frame-cinema-camera (1).jpg',        brand:'Sony',     type:'camera'},
+  {name:'Sony FX6 Full-Frame Cinema',          img:'sony-fx6-full-frame-cinema-camera.jpg',            brand:'Sony',     type:'camera'},
+  {name:'Sony PXW-FX9 XD Cam 6K Full-Frame',  img:'sony-pxw-fx9-xdcam-6k-full-frame-camera.jpg',    brand:'Sony',     type:'camera'},
 
   // ── LENSES ──
-  {name:'Canon RF 15-35mm F2.8L IS',           img:'canon-rf-15-35mm-f2.8l-is-lens.jpg',               brand:'Canon', type:'lens'},
-  {name:'Canon RF 24-70mm F2.8L IS',           img:'canon-rf-24-70mm-f2.8l-is-lens.jpg',               brand:'Canon', type:'lens'},
-  {name:'Canon RF 24-105mm F4L IS',            img:'canon-rf-24-105mm-f4l-is-lens.jpg',                brand:'Canon', type:'lens'},
-  {name:'Canon RF 35mm F1.8 Macro IS STM',     img:'canon-rf-35mm-f1.8-macro-is-stm-lens.jpg',         brand:'Canon', type:'lens'},
-  {name:'Canon RF 50mm F1.2',                  img:'canon-rf-50mm-1.2.jpg',                             brand:'Canon', type:'lens'},
-  {name:'Canon RF 50mm F1.8 STM',              img:'canon-rf-50mm-f1.8-stm-lens.jpg',                  brand:'Canon', type:'lens'},
-  {name:'Canon RF 70-200mm F2.8L IS',          img:'canon-rf-70-200mm-f2.8l-is-lens.jpg',              brand:'Canon', type:'lens'},
-  {name:'Canon RF 85mm F1.2L USM',             img:'canon-rf-85mm-f-1.2-l-usm-lens.jpg',                brand:'Canon', type:'lens'},
-  {name:'Canon RF 85mm F2 Macro IS STM',       img:'canon-rf-85mm-f2-macro-is-stm-lens.jpg',           brand:'Canon', type:'lens'},
-  {name:'Canon RF 100mm F2.8L Macro IS USM',   img:'canon-rf-100mm-f2.8-l-macro-is-usm-lens.jpg',      brand:'Canon', type:'lens'},
-  {name:'Sony FE 12-24mm F2.8 GM',             img:'sony-fe-12-24mm-f2.8-gm-lens.jpg',                brand:'Sony',  type:'lens'},
-  {name:'Sony FE 12-24mm F4 G',                img:'sony-fe-12-24mm-f4-g-lens.jpg',                   brand:'Sony',  type:'lens'},
-  {name:'Sony FE 14mm F1.8 GM',                img:'sony-fe-14mm-f1.8-gm-lens.jpg',                    brand:'Sony',  type:'lens'},
-  {name:'Sony FE 16-35mm F2.8 GM',             img:'sony-fe-16-35mm-f2.8-gm-lens.jpg',                brand:'Sony',  type:'lens'},
-  {name:'Sony FE 24-70mm F2.8 GM',             img:'sony-fe-24-70mm-f2.8-gm-lens.jpg',                brand:'Sony',  type:'lens'},
-  {name:'Sony FE 24mm F1.4 GM',                img:'sony-fe-24mm-f1.4-gm-lens.jpg',                    brand:'Sony',  type:'lens'},
-  {name:'Sony FE 35mm F1.4 GM',                img:'sony-fe-35mm--f1.4-gm-lens.jpg',                   brand:'Sony',  type:'lens'},
-  {name:'Sony FE 50mm F1.2 GM',                img:'sony-fe-50mm--f1.2-gm-lens.jpg',                   brand:'Sony',  type:'lens'},
-  {name:'Sony FE 50mm F1.8',                   img:'sony-fe-50mm-f1.8-lens.jpg',                       brand:'Sony',  type:'lens'},
-  {name:'Sony FE 70-200mm F2.8 GM',            img:'sony-fe-70-200mm-f2.8-gm-lens.jpg',               brand:'Sony',  type:'lens'},
-  {name:'Sony FE 85mm F1.4 GM',                img:'sony-fe-85mm-f1.4-gm-lens.jpg',                    brand:'Sony',  type:'lens'},
-  {name:'Sony FE 90mm Macro F2.8 G OSS',       img:'sony-fe-90mm-macro-f2.8-g-oss-lens.jpg',           brand:'Sony',  type:'lens'},
-  {name:'Sony FE 100-400mm F4.5-5.6 GM OSS',   img:'sony-fe-100-400mm-f4.5-5.6-gm-oss-lens.jpg',      brand:'Sony',  type:'lens'},
-  {name:'Sony FE 100mm F2.8 STF GM OSS',       img:'sony-fe-100mm-f2.8-stf-gm-oss-lens.jpg',           brand:'Sony',  type:'lens'},
-  {name:'Sony FE 135mm F1.8 GM',               img:'sony-fe-135mm-f1.8-gm-lens (1).jpg',               brand:'Sony',  type:'lens'},
-  {name:'Sony FE 135mm F1.8 GM (Alt)',          img:'sony-fe-135mm-f1.8-gm-lens.jpg',                   brand:'Sony',  type:'lens'},
-  {name:'Sony FE 200-600mm F5.6-6.3 G OSS',    img:'sony-fe-200-600mm-f5.6-6.3-g-oss-lens.jpg',        brand:'Sony',  type:'lens'},
+  {name:'Canon RF 15-35mm F2.8L IS',           img:'canon-rf-15-35mm-f2.8l-is-lens.jpg',              brand:'Canon', type:'lens'},
+  {name:'Canon RF 24-70mm F2.8L IS',           img:'canon-rf-24-70mm-f2.8l-is-lens.jpg',              brand:'Canon', type:'lens'},
+  {name:'Canon RF 24-105mm F4L IS',            img:'canon-rf-24-105mm-f4l-is-lens.jpg',               brand:'Canon', type:'lens'},
+  {name:'Canon RF 35mm F1.8 Macro IS STM',     img:'canon-rf-35mm-f1.8-macro-is-stm-lens.jpg',        brand:'Canon', type:'lens'},
+  {name:'Canon RF 50mm F1.2',                  img:'canon-rf-50mm-1.2.jpg',                            brand:'Canon', type:'lens'},
+  {name:'Canon RF 50mm F1.8 STM',              img:'canon-rf-50mm-f1.8-stm-lens.jpg',                 brand:'Canon', type:'lens'},
+  {name:'Canon RF 70-200mm F2.8L IS',          img:'canon-rf-70-200mm-f2.8l-is-lens.jpg',             brand:'Canon', type:'lens'},
+  {name:'Canon RF 85mm F1.2L USM',             img:'canon-rf-85mm-f-1.2-l-usm-lens.jpg',              brand:'Canon', type:'lens'},
+  {name:'Canon RF 85mm F2 Macro IS STM',       img:'canon-rf-85mm-f2-macro-is-stm-lens.jpg',          brand:'Canon', type:'lens'},
+  {name:'Canon RF 100mm F2.8L Macro IS USM',   img:'canon-rf-100mm-f2.8-l-macro-is-usm-lens.jpg',     brand:'Canon', type:'lens'},
+  {name:'Sony FE 12-24mm F2.8 GM',             img:'sony-fe-12-24mm-f2.8-gm-lens.jpg',               brand:'Sony',  type:'lens'},
+  {name:'Sony FE 12-24mm F4 G',                img:'sony-fe-12-24mm-f4-g-lens.jpg',                  brand:'Sony',  type:'lens'},
+  {name:'Sony FE 14mm F1.8 GM',                img:'sony-fe-14mm-f1.8-gm-lens.jpg',                   brand:'Sony',  type:'lens'},
+  {name:'Sony FE 16-35mm F2.8 GM',             img:'sony-fe-16-35mm-f2.8-gm-lens.jpg',               brand:'Sony',  type:'lens'},
+  {name:'Sony FE 24-70mm F2.8 GM',             img:'sony-fe-24-70mm-f2.8-gm-lens.jpg',               brand:'Sony',  type:'lens'},
+  {name:'Sony FE 24mm F1.4 GM',                img:'sony-fe-24mm-f1.4-gm-lens.jpg',                   brand:'Sony',  type:'lens'},
+  {name:'Sony FE 35mm F1.4 GM',                img:'sony-fe-35mm--f1.4-gm-lens.jpg',                  brand:'Sony',  type:'lens'},
+  {name:'Sony FE 50mm F1.2 GM',                img:'sony-fe-50mm--f1.2-gm-lens.jpg',                  brand:'Sony',  type:'lens'},
+  {name:'Sony FE 50mm F1.8',                   img:'sony-fe-50mm-f1.8-lens.jpg',                      brand:'Sony',  type:'lens'},
+  {name:'Sony FE 70-200mm F2.8 GM',            img:'sony-fe-70-200mm-f2.8-gm-lens.jpg',              brand:'Sony',  type:'lens'},
+  {name:'Sony FE 85mm F1.4 GM',                img:'sony-fe-85mm-f1.4-gm-lens.jpg',                   brand:'Sony',  type:'lens'},
+  {name:'Sony FE 90mm Macro F2.8 G OSS',       img:'sony-fe-90mm-macro-f2.8-g-oss-lens.jpg',          brand:'Sony',  type:'lens'},
+  {name:'Sony FE 100-400mm F4.5-5.6 GM OSS',   img:'sony-fe-100-400mm-f4.5-5.6-gm-oss-lens.jpg',     brand:'Sony',  type:'lens'},
+  {name:'Sony FE 100mm F2.8 STF GM OSS',       img:'sony-fe-100mm-f2.8-stf-gm-oss-lens.jpg',          brand:'Sony',  type:'lens'},
+  {name:'Sony FE 135mm F1.8 GM',               img:'sony-fe-135mm-f1.8-gm-lens (1).jpg',              brand:'Sony',  type:'lens'},
+  {name:'Sony FE 135mm F1.8 GM (Alt)',          img:'sony-fe-135mm-f1.8-gm-lens.jpg',                  brand:'Sony',  type:'lens'},
+  {name:'Sony FE 200-600mm F5.6-6.3 G OSS',    img:'sony-fe-200-600mm-f5.6-6.3-g-oss-lens.jpg',       brand:'Sony',  type:'lens'},
 ];
 
 // ─── ATOMS ────────────────────────────────────────────────────────────────────
 function SafeImg({src,alt,style,cls}:{src:string;alt:string;style?:React.CSSProperties;cls?:string}) {
   const [err,setErr]=useState(false);
-  // Reset error state if src changes
   const prevSrc=useRef(src);
   if(prevSrc.current!==src){prevSrc.current=src;if(err)setErr(false);}
   if(err) return (
@@ -413,7 +445,7 @@ function Footer({go}:{go:(p:Page)=>void}) {
 // ═══════════════════════════════════════════════════════════════════════════════
 const SLIDES = [
   'slide1.jpg','slide2.jpg','slide3.jpg','slide4.jpg','slide5.jpg',
-  'slide6.jpg','slide7.jpg','slide8.jpg','slide9.jpg','slide10.jpg',
+  'slide6.jpg','slide7.jpg','slide8.jpg','slide9.jpg',
 ];
 
 function HeroSlider({go}:{go:(p:Page)=>void}) {
@@ -641,7 +673,7 @@ function Home({go}:{go:(p:Page)=>void}) {
               <SafeImg src="maternity1.png" alt="photography" style={{height:'100%',minHeight:340}}/>
             </div>
             <div style={{overflow:'hidden',background:C.bgCard,border:`1px solid ${C.ghost}`,aspectRatio:'1'}}>
-              <SafeImg src="Wedding1.png" alt="photography"/>
+              <SafeImg src="wedding (1).jpg" alt="photography"/>
             </div>
             <div style={{overflow:'hidden',background:C.bgCard,border:`1px solid ${C.ghost}`,aspectRatio:'1'}}>
               <SafeImg src="modelling1.png" alt="photography"/>
@@ -729,7 +761,6 @@ function Gallery({svc,go}:{svc:typeof SVCS[0];go:(p:Page)=>void}) {
 
   const openLb=(i:number)=>{
     setLb(i);
-    // Push a dummy entry so back button closes lightbox instead of navigating
     window.history.pushState(null,'',window.location.pathname);
   };
   const closeLb=()=>setLb(null);
@@ -741,14 +772,11 @@ function Gallery({svc,go}:{svc:typeof SVCS[0];go:(p:Page)=>void}) {
       if(e.key==='ArrowLeft') setLb(p=>p!==null?Math.max(p-1,0):null);
       if(e.key==='Escape') setLb(null);
     };
-    // Intercept popstate while lightbox is open to close it instead of navigating
     const onPop=()=>{
       if(lbRef.current!==null){
         setLb(null);
-        // Re-push so App's popstate handler still has an entry for page back
         window.history.pushState(null,'',window.location.pathname);
       }
-      // If lightbox is closed, let it bubble up to App's handler
     };
     window.addEventListener('keydown',onKey);
     window.addEventListener('popstate',onPop);
@@ -986,7 +1014,6 @@ function Rentals({go}:{go:(p:Page)=>void}) {
 export default function App() {
   const [loaded,setLoaded]=useState(false);
   const [page,  setPage  ]=useState<Page>('home');
-  // Internal history stack — no URL changes, no Next.js reloads
   const historyStack=useRef<Page[]>(['home']);
 
   const go=useCallback((p:Page)=>{
@@ -996,7 +1023,6 @@ export default function App() {
   },[]);
 
   useEffect(()=>{
-    // Push one dummy entry so the back button always fires popstate
     window.history.pushState(null,'',window.location.pathname);
 
     const onPop=()=>{
@@ -1006,10 +1032,7 @@ export default function App() {
         const prev=stack[stack.length-1];
         setPage(prev);
         window.scrollTo(0,0);
-        // Re-push so the next back press also fires
         window.history.pushState(null,'',window.location.pathname);
-      } else {
-        // Nothing left in stack — let browser navigate away naturally
       }
     };
 
