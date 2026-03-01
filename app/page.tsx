@@ -444,8 +444,8 @@ function Footer({go}:{go:(p:Page)=>void}) {
 // HERO SLIDER
 // ═══════════════════════════════════════════════════════════════════════════════
 const SLIDES = [
-  'slide1.jpg','slide2.jpg','slide3.jpg','slide4.jpg','slide5.jpg',
-  'slide6.jpg','slide7.jpg','slide8.jpg','slide9.jpg',
+  'slide (1).jpg','slide (2).jpg','slide (3).jpg','slide (4).jpg',
+  'slide (5).jpg','slide (6).jpg','slide (7).jpg','slide (8).jpg',
 ];
 
 function HeroSlider({go}:{go:(p:Page)=>void}) {
