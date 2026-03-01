@@ -100,7 +100,7 @@ const GEAR: Gear[] = [
   { name: 'Canon 5D Mark IV with 24-70mm Lens', img: 'canon-5d-mark-iv-with-24-70mm-lens.jpg', brand: 'Canon', type: 'camera' },
   { name: 'Canon EOS R5 Mark II', img: 'canon-eos--r5-mark-ii-camera.jpg', brand: 'Canon', type: 'camera' },
   { name: 'Canon EOS R5 Mirrorless Digital', img: 'canon-eos-r5-mirrorless-digital-camera.jpg', brand: 'Canon', type: 'camera' },
-  { name: 'Canon EOS R6 Mark II', img: 'canon-eos-r6-mark-ii camera.jpg', brand: 'Canon', type: 'camera' },
+  { name: 'Canon EOS R6 Mark II', img: 'canon-eos-r6-mark-ii-camera.jpg', brand: 'Canon', type: 'camera' },
   { name: 'Canon EOS R6 Mirrorless Digital', img: 'canon-eos-r6-mirrorless-digital-camera.jpg', brand: 'Canon', type: 'camera' },
   { name: 'GoPro Hero 11', img: 'gopro-hero-11.jpg', brand: 'GoPro', type: 'camera' },
   { name: 'GoPro Hero 13 Black', img: 'gopro-hero-13-black.jpg', brand: 'GoPro', type: 'camera' },
